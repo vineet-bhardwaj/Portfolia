@@ -7,7 +7,7 @@ export interface SkillCategory {
   icon: string;
   title: string;
   skills: string[]; // Changed from Skill[] to string[]
-  bgStyle?: 'light' | 'medium' | 'high';
+  bgStyle?: string; // Accept any string from Sanity
 }
 
 interface TechnicalStackProps {

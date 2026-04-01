@@ -2,36 +2,18 @@ import Image from "next/image";
 import { urlFor } from "@/sanity/client";
 
 interface AboutMeProps {
-  label?: string;
+  tagline?: string;
   title?: string;
-  titleAccent?: string;
   description?: string;
   profileImage?: any;
 }
 
 export default function AboutMe({
-  label = "The Narrative",
-  title = "Crafting digital experiences with a curator's precision.",
-  titleAccent = "experiences",
-  description = "I am a full-stack developer based in Stockholm, dedicated to building software that balances high-performance engineering with intentional aesthetic design. My approach is rooted in the belief that code should be as elegant as the interface it powers.",
+  tagline = "Introduction",
+  title = "About Me",
+  description = "A passionate software architect and digital curator dedicated to crafting meaningful digital experiences. With expertise spanning frontend and backend development, I specialize in creating elegant solutions to complex technical challenges.",
   profileImage
 }: AboutMeProps) {
-  // Format title with accent word
-  const formatTitle = () => {
-    if (!titleAccent || !title.includes(titleAccent)) {
-      return title;
-    }
-    
-    const parts = title.split(titleAccent);
-    return (
-      <>
-        {parts[0]}
-        <span className="italic text-primary">{titleAccent}</span>
-        {parts[1]}
-      </>
-    );
-  };
-
   // Get profile image URL
   const portraitUrl = profileImage
     ? (typeof profileImage === 'string' ? profileImage : urlFor(profileImage).width(600).height(750).url())
@@ -41,10 +23,10 @@ export default function AboutMe({
     <section className="grid grid-cols-1 md:grid-cols-12 gap-12 items-start mb-32">
       <div className="md:col-span-7">
         <span className="font-label text-xs uppercase tracking-widest font-semibold text-tertiary mb-6 block">
-          {label}
+          {tagline}
         </span>
         <h1 className="font-serif text-5xl md:text-7xl leading-tight text-on-surface mb-8">
-          {formatTitle()}
+          {title}
         </h1>
         <p className="font-body text-lg md:text-xl text-on-surface-variant max-w-2xl leading-relaxed">
           {description}

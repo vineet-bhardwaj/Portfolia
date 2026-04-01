@@ -122,11 +122,6 @@ npx sanity dev
 
 ## 📦 Content Management
 
-### Sanity Project Info
-- **Project ID:** `guclq8cg`
-- **Dataset:** `production`
-- **Studio Version:** 5.18.0
-
 ### Content Types (Schemas)
 
 | Schema | Purpose | Page |
@@ -199,9 +194,9 @@ Choose a subdomain (e.g., `vineetb-studio`) and your Studio will be live at `htt
 
 **Update Sanity CORS settings:**
 1. Go to https://sanity.io/manage
-2. Select project `guclq8cg`
+2. Select your project
 3. Settings → API → CORS Origins
-4. Add your production URL: `https://vineetb.me`
+4. Add your production URL
 
 ---
 

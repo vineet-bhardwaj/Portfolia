@@ -126,7 +126,7 @@ export default async function AboutPage() {
         tagline={aboutMeData.tagline}
         title={aboutMeData.title}
         description={aboutMeData.description}
-        profileImage={aboutMeData.profileImage}
+        profileImage={aboutMeData.portrait}
       />
 
       {/* The Skill Ecosystem (Bento Grid) */}
