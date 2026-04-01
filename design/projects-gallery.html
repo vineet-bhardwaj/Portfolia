@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Projects Gallery | Curator.Dev</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-lowest": "#ffffff",
+              "primary-fixed": "#e4e2e1",
+              "secondary-fixed": "#f4e0bd",
+              "on-tertiary-fixed-variant": "#485e70",
+              "surface-container-low": "#f4f4f0",
+              "error-container": "#fe8b70",
+              "surface-tint": "#5f5e5e",
+              "tertiary": "#4c6174",
+              "on-tertiary-container": "#3f5466",
+              "error": "#9e422c",
+              "surface-container-high": "#e6e9e4",
+              "secondary-dim": "#5f5237",
+              "on-secondary-container": "#5d5035",
+              "on-primary-fixed": "#3f3f3f",
+              "on-tertiary-fixed": "#2c4253",
+              "inverse-primary": "#ffffff",
+              "error-dim": "#5c1202",
+              "on-primary": "#faf7f6",
+              "on-surface": "#2f3430",
+              "surface": "#faf9f6",
+              "background": "#faf9f6",
+              "on-secondary-fixed-variant": "#675a3e",
+              "on-secondary": "#fff8f0",
+              "primary": "#5f5e5e",
+              "primary-container": "#e4e2e1",
+              "on-primary-fixed-variant": "#5c5b5b",
+              "inverse-surface": "#0d0f0d",
+              "secondary-fixed-dim": "#e5d2b0",
+              "secondary": "#6b5d42",
+              "surface-dim": "#d6dbd5",
+              "outline": "#777c77",
+              "surface-container-highest": "#e0e4de",
+              "on-error-container": "#742410",
+              "tertiary-fixed-dim": "#c0d7ed",
+              "tertiary-dim": "#405568",
+              "on-primary-container": "#525251",
+              "on-surface-variant": "#5c605c",
+              "on-tertiary": "#f6f9ff",
+              "inverse-on-surface": "#9d9d9a",
+              "tertiary-fixed": "#cee5fb",
+              "primary-dim": "#535252",
+              "on-secondary-fixed": "#4a3e24",
+              "surface-container": "#edeeea",
+              "surface-bright": "#faf9f6",
+              "surface-variant": "#e0e4de",
+              "on-error": "#fff7f6",
+              "outline-variant": "#afb3ae",
+              "tertiary-container": "#cee5fb",
+              "secondary-container": "#f4e0bd",
+              "on-background": "#2f3430",
+              "primary-fixed-dim": "#d6d4d3"
+            },
+            fontFamily: {
+              "headline": ["Newsreader", "serif"],
+              "body": ["Manrope", "sans-serif"],
+              "label": ["Manrope", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .editorial-gradient {
+            background: linear-gradient(145deg, #5f5e5e 0%, #535252 100%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-stone-50/70 dark:bg-stone-900/70 backdrop-blur-xl">
+<div class="flex justify-between items-center px-8 md:px-16 py-6 max-w-screen-2xl mx-auto">
+<div class="text-2xl font-serif italic text-stone-900 dark:text-stone-50">
+                Curator.Dev
+            </div>
+<div class="hidden md:flex items-center gap-12">
+<a class="text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 transition-colors font-medium tracking-tight" href="#">Home</a>
+<a class="text-stone-900 dark:text-stone-50 font-bold border-b-2 border-stone-800 dark:border-stone-200 pb-1 font-medium tracking-tight" href="#">Projects</a>
+<a class="text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 transition-colors font-medium tracking-tight" href="#">About</a>
+<a class="text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 transition-colors font-medium tracking-tight" href="#">Contact</a>
+</div>
+<button class="editorial-gradient text-on-primary px-8 py-2.5 rounded-full font-medium active:scale-95 duration-200 ease-in-out">
+                Resume
+            </button>
+</div>
+</nav>
+<main class="pt-32 pb-24 px-8 md:px-16 max-w-screen-2xl mx-auto">
+<!-- Hero Section: Editorial Asymmetry -->
+<header class="mb-24 flex flex-col md:flex-row md:items-end justify-between gap-8">
+<div class="max-w-3xl">
+<span class="font-label text-xs uppercase tracking-widest font-semibold text-outline mb-4 block">Selected Works 2023—2024</span>
+<h1 class="font-headline text-5xl md:text-7xl leading-tight text-on-background italic">
+                    Curating digital experiences through <span class="text-primary font-normal not-italic">precise engineering</span> and intentional design.
+                </h1>
+</div>
+<div class="md:pb-4">
+<p class="font-body text-on-surface-variant max-w-xs leading-relaxed">
+                    A collection of high-performance applications built with a focus on tactile interactions and scalable architecture.
+                </p>
+</div>
+</header>
+<!-- Projects Grid: Bento-style variations -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-12">
+<!-- Feature Project (Wide) -->
+<div class="md:col-span-8 group">
+<div class="bg-surface-container-high rounded-xl p-4 overflow-hidden h-full flex flex-col">
+<div class="relative overflow-hidden rounded-lg aspect-[16/9] mb-8">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-in-out" data-alt="Modern minimalist user interface with clean typography and soft shadows on a high-resolution dashboard screen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQnSCx6B_EG797y_TzVwJhT730-8UzR9nqr5056TBuIbo8XrmUkeo3-ZY8FVvmPZ2ilOdtEM_-6Zj7WFQUHcoBdyh14D6emJBiCMKtSHoEInuE3PpSCMWJHAgQ-mId2Xtljw_Q3NQrAqfF496nbSIgu1482dkjIgJtx8rw_6ilpV6c_KQiDlUPv7ONjor_1EFUJxEeUBuFgT0-eXXSxlnvDoCc8gkePSQgWrnW5WY1_VSQO5p-Ll23zqunmd1GRU_VIM3WPIx7ssNY"/>
+</div>
+<div class="px-4 pb-4 mt-auto">
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded text-xs font-label uppercase tracking-wider">React</span>
+<span class="bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded text-xs font-label uppercase tracking-wider">TypeScript</span>
+<span class="bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded text-xs font-label uppercase tracking-wider">GraphQL</span>
+</div>
+<h3 class="font-headline text-3xl mb-3">Ethereal Analytics Engine</h3>
+<p class="text-on-surface-variant mb-8 max-w-xl">A deep-data visualization platform for creative agencies, focusing on real-time performance metrics and aesthetic reporting.</p>
+<div class="flex items-center gap-6">
+<a class="inline-flex items-center gap-2 text-primary font-bold hover:gap-3 transition-all" href="#">
+                                View Details <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+<a class="inline-flex items-center gap-2 text-outline hover:text-on-surface transition-colors" href="#">
+                                Live Demo <span class="material-symbols-outlined text-sm">open_in_new</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Small Project 1 -->
+<div class="md:col-span-4 group">
+<div class="bg-surface-container-low rounded-xl p-4 h-full flex flex-col">
+<div class="relative overflow-hidden rounded-lg aspect-square mb-6">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-in-out" data-alt="Abstract 3D shapes in muted beige and grey tones with soft studio lighting and grain texture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_zYjM4ytSQ2nKE5cruiOSur9txqfcgB1ww7qZ5Kp8L1G05lzWBTkqWFnJnYiHiOIvu9TKGZd8uojXd30u9xRdRCAKRUukZo1H4CDeeE-TuPqIp7XlM_VGI1mjkLuuHHXoxJXoj0UU_VLTUkKcyaOj3HZX3BbEgxLa9ZBYFsWQ_NiYVYI4-3y_Af10c9hNggUO2ihU2hKck5p8g44B4-YwQRr59sxl7LXBiC6fWudcjLaZYvGOD9ffpkL8mQNXBIIpBquCj0rUpzSi"/>
+</div>
+<div class="px-2 mt-auto">
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded text-xs font-label uppercase tracking-wider">Node.js</span>
+<span class="bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded text-xs font-label uppercase tracking-wider">PostgreSQL</span>
+</div>
+<h3 class="font-headline text-2xl mb-2">Nexus Protocol</h3>
+<p class="text-on-surface-variant text-sm mb-6">Lightweight infrastructure for decentralized file management and encrypted metadata storage.</p>
+<a class="editorial-gradient text-on-primary text-center block py-3 rounded-full font-medium active:scale-95 duration-200 transition-all" href="#">
+                            Explore Project
+                        </a>
+</div>
+</div>
+</div>
+<!-- Small Project 2 -->
+<div class="md:col-span-4 group">
+<div class="bg-surface-container-low rounded-xl p-4 h-full flex flex-col">
+<div class="relative overflow-hidden rounded-lg aspect-square mb-6">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-in-out" data-alt="Close up of mechanical keyboard components and circuit boards with clean technical lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCW-5FaT-5RBUCuNCGIiijsccVH9j-NfZkyriB7zMIMo0nK8-4LcA0fuwxn9AozI2H6Wl8K0ZRmVUBmjY_blY5QigFBSgj6MCd3zMO6oEiBi0kakXn90R7TU5Nw7vS4THnkSUZfTXE7450RGTEOnvz8mNpQwWAX2NXdGEQ6Njep4wJrUez-LJeOeBSiSAAFaQ6DMZPipNrdvQz-A2ZJTJt-g5-HdpjPAbBCy5PxzZ8_XvB-4nSTpZ4ba77GxUMyEt1iCAlFdMDYuK1Q"/>
+</div>
+<div class="px-2 mt-auto">
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded text-xs font-label uppercase tracking-wider">Next.js</span>
+<span class="bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded text-xs font-label uppercase tracking-wider">Tailwind</span>
+</div>
+<h3 class="font-headline text-2xl mb-2">Milled UI Library</h3>
+<p class="text-on-surface-variant text-sm mb-6">A design system for industrial applications, emphasizing high-contrast accessibility and tactile feedback.</p>
+<a class="border-2 border-outline-variant/30 hover:bg-surface-container-highest transition-all text-center block py-3 rounded-full font-medium active:scale-95 duration-200" href="#">
+                            View Case Study
+                        </a>
+</div>
+</div>
+</div>
+<!-- Feature Project (Wide Reverse) -->
+<div class="md:col-span-8 group">
+<div class="bg-surface-container-high rounded-xl p-4 overflow-hidden h-full flex flex-col">
+<div class="relative overflow-hidden rounded-lg aspect-[16/9] mb-8">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-in-out" data-alt="Minimalist architectural space with large windows casting soft geometric shadows on a warm stone floor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZTfKLCf6hx93IxMvc364rMHWZ4n5kt8XdNCJUVbn81R2bQDnSwXQx5RER2QcWFHwCtfcRCnYgcjm3K9KEcqL_ZMnsYB8B5lGUsEWeYo1LtIpu8Ank6feyIZM0KlWtaBhYGpDxVCyHAnr5RA2oDrnXR6W0_8IXuu4Cjpxux8Dwq2ZXUlPFmKcE1N5S8EGm7ytJOuQ0BKi0ETjv1HISxlAaTYtLvyZPELl8yl9OPGdvieIpOgBGdF2n-M1-4yxmLgWBak8WVQshQNxY"/>
+</div>
+<div class="px-4 pb-4 mt-auto">
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded text-xs font-label uppercase tracking-wider">AWS</span>
+<span class="bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded text-xs font-label uppercase tracking-wider">Python</span>
+<span class="bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded text-xs font-label uppercase tracking-wider">Terraform</span>
+</div>
+<h3 class="font-headline text-3xl mb-3">Stone &amp; Solder Platform</h3>
+<p class="text-on-surface-variant mb-8 max-w-xl">Cloud-native marketplace for independent hardware artisans, featuring complex inventory syncing and low-latency bidding.</p>
+<div class="flex items-center gap-6">
+<a class="inline-flex items-center gap-2 text-primary font-bold hover:gap-3 transition-all" href="#">
+                                View Details <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+<a class="inline-flex items-center gap-2 text-outline hover:text-on-surface transition-colors" href="#">
+                                GitHub Repo <span class="material-symbols-outlined text-sm">code</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination / Load More: Subtle -->
+<div class="mt-32 flex justify-center">
+<button class="group flex flex-col items-center gap-4">
+<span class="font-label text-xs uppercase tracking-[0.2em] text-outline group-hover:text-primary transition-colors">Show More Archive</span>
+<div class="w-px h-16 bg-outline-variant/30 group-hover:h-24 transition-all duration-500"></div>
+</button>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-stone-100 dark:bg-stone-950 w-full py-12 px-8 md:px-16">
+<div class="max-w-screen-2xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+<p class="text-stone-600 dark:text-stone-400 font-label text-xs uppercase tracking-widest font-semibold">
+                © 2024 The Digital Curator. Built with Intent.
+            </p>
+<div class="flex items-center gap-8">
+<a class="text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-opacity" href="#">
+<span class="material-symbols-outlined">hub</span>
+</a>
+<a class="text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-opacity" href="#">
+<span class="material-symbols-outlined">contact_mail</span>
+</a>
+<a class="text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-opacity" href="#">
+<span class="material-symbols-outlined">terminal</span>
+</a>
+</div>
+</div>
+</footer>
+</body></html>

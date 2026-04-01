@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-lowest": "#ffffff",
+              "primary-fixed": "#e4e2e1",
+              "secondary-fixed": "#f4e0bd",
+              "on-tertiary-fixed-variant": "#485e70",
+              "surface-container-low": "#f4f4f0",
+              "error-container": "#fe8b70",
+              "surface-tint": "#5f5e5e",
+              "tertiary": "#4c6174",
+              "on-tertiary-container": "#3f5466",
+              "error": "#9e422c",
+              "surface-container-high": "#e6e9e4",
+              "secondary-dim": "#5f5237",
+              "on-secondary-container": "#5d5035",
+              "on-primary-fixed": "#3f3f3f",
+              "on-tertiary-fixed": "#2c4253",
+              "inverse-primary": "#ffffff",
+              "error-dim": "#5c1202",
+              "on-primary": "#faf7f6",
+              "on-surface": "#2f3430",
+              "surface": "#faf9f6",
+              "background": "#faf9f6",
+              "on-secondary-fixed-variant": "#675a3e",
+              "on-secondary": "#fff8f0",
+              "primary": "#5f5e5e",
+              "primary-container": "#e4e2e1",
+              "on-primary-fixed-variant": "#5c5b5b",
+              "inverse-surface": "#0d0f0d",
+              "secondary-fixed-dim": "#e5d2b0",
+              "secondary": "#6b5d42",
+              "surface-dim": "#d6dbd5",
+              "outline": "#777c77",
+              "surface-container-highest": "#e0e4de",
+              "on-error-container": "#742410",
+              "tertiary-fixed-dim": "#c0d7ed",
+              "tertiary-dim": "#405568",
+              "on-primary-container": "#525251",
+              "on-surface-variant": "#5c605c",
+              "on-tertiary": "#f6f9ff",
+              "inverse-on-surface": "#9d9d9a",
+              "tertiary-fixed": "#cee5fb",
+              "primary-dim": "#535252",
+              "on-secondary-fixed": "#4a3e24",
+              "surface-container": "#edeeea",
+              "surface-bright": "#faf9f6",
+              "surface-variant": "#e0e4de",
+              "on-error": "#fff7f6",
+              "outline-variant": "#afb3ae",
+              "tertiary-container": "#cee5fb",
+              "secondary-container": "#f4e0bd",
+              "on-background": "#2f3430",
+              "primary-fixed-dim": "#d6d4d3"
+            },
+            fontFamily: {
+              "headline": ["Newsreader"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body { font-family: 'Manrope', sans-serif; background-color: #faf9f6; color: #2f3430; }
+        h1, h2, h3 { font-family: 'Newsreader', serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased">
+<!-- Top Navigation Shell -->
+<nav class="fixed top-0 w-full z-50 bg-stone-50/70 dark:bg-stone-900/70 backdrop-blur-xl">
+<div class="flex justify-between items-center px-8 md:px-16 py-6 max-w-screen-2xl mx-auto">
+<span class="text-2xl font-serif italic text-stone-900 dark:text-stone-50">Curator.Dev</span>
+<div class="hidden md:flex items-center gap-10">
+<a class="text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 transition-colors font-medium tracking-tight" href="#">Home</a>
+<a class="text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 transition-colors font-medium tracking-tight" href="#">Projects</a>
+<a class="text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 transition-colors font-medium tracking-tight" href="#">About</a>
+<a class="text-stone-900 dark:text-stone-50 font-bold border-b-2 border-stone-800 dark:border-stone-200 pb-1 font-medium tracking-tight" href="#">Contact</a>
+</div>
+<button class="bg-gradient-to-br from-primary to-primary-dim text-on-primary px-6 py-2 rounded-full font-medium active:scale-95 transition-all duration-200 ease-in-out">
+                Resume
+            </button>
+</div>
+</nav>
+<main class="pt-32 pb-24 px-8 md:px-16 max-w-screen-2xl mx-auto">
+<!-- Hero Section Asymmetric -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end mb-24">
+<div class="lg:col-span-8">
+<h1 class="text-6xl md:text-8xl font-headline tracking-tight leading-none mb-8">
+                    Let’s build <br/> <span class="italic">something together.</span>
+</h1>
+<p class="text-xl md:text-2xl text-on-surface-variant max-w-2xl font-body leading-relaxed">
+                    Whether you have a specific project in mind or just want to discuss the nuances of clean architecture, my inbox is always open for thoughtful collaboration.
+                </p>
+</div>
+<div class="lg:col-span-4 flex justify-start lg:justify-end pb-4">
+<div class="flex flex-col gap-4">
+<span class="text-xs font-label uppercase tracking-widest font-semibold text-outline">Social Connections</span>
+<div class="flex gap-6">
+<a class="group flex items-center gap-2 text-primary font-medium" href="#">
+<span class="material-symbols-outlined">terminal</span>
+<span class="border-b border-transparent group-hover:border-primary transition-all">GitHub</span>
+</a>
+<a class="group flex items-center gap-2 text-primary font-medium" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="border-b border-transparent group-hover:border-primary transition-all">LinkedIn</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Content Area: Contact & Resume -->
+<div class="grid grid-cols-1 lg:grid-cols-5 gap-16">
+<!-- Contact Form Section -->
+<section class="lg:col-span-3 bg-surface-container-low rounded-xl p-8 md:p-12">
+<h2 class="text-3xl font-headline mb-10">Send a Message</h2>
+<form class="space-y-8">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="flex flex-col gap-2">
+<label class="text-xs font-label uppercase tracking-widest font-semibold text-on-surface-variant">Your Name</label>
+<input class="bg-surface-container-lowest border-none rounded-lg p-4 focus:ring-2 focus:ring-tertiary/20 text-on-surface placeholder:text-outline-variant" placeholder="John Doe" type="text"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-xs font-label uppercase tracking-widest font-semibold text-on-surface-variant">Email Address</label>
+<input class="bg-surface-container-lowest border-none rounded-lg p-4 focus:ring-2 focus:ring-tertiary/20 text-on-surface placeholder:text-outline-variant" placeholder="john@example.com" type="email"/>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-xs font-label uppercase tracking-widest font-semibold text-on-surface-variant">Inquiry Subject</label>
+<select class="bg-surface-container-lowest border-none rounded-lg p-4 focus:ring-2 focus:ring-tertiary/20 text-on-surface">
+<option>New Project Proposal</option>
+<option>General Collaboration</option>
+<option>Speaking &amp; Mentorship</option>
+<option>Just saying hello</option>
+</select>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-xs font-label uppercase tracking-widest font-semibold text-on-surface-variant">Message</label>
+<textarea class="bg-surface-container-lowest border-none rounded-lg p-4 focus:ring-2 focus:ring-tertiary/20 text-on-surface placeholder:text-outline-variant" placeholder="Tell me about your vision..." rows="5"></textarea>
+</div>
+<button class="w-full md:w-auto px-10 py-4 bg-gradient-to-br from-primary to-primary-dim text-on-primary rounded-full font-bold tracking-tight hover:scale-[1.02] active:scale-95 transition-all shadow-sm" type="submit">
+                        Send Message
+                    </button>
+</form>
+</section>
+<!-- Resume & Logistics Sidebar -->
+<aside class="lg:col-span-2 space-y-12">
+<!-- Resume Card -->
+<div class="bg-surface-container-highest rounded-xl p-8 relative overflow-hidden">
+<div class="relative z-10">
+<h3 class="text-2xl font-headline mb-4">Curriculum Vitae</h3>
+<p class="text-on-surface-variant font-body mb-8 leading-relaxed">
+                            A comprehensive overview of my technical expertise, professional experience, and academic background in software engineering.
+                        </p>
+<a class="inline-flex items-center justify-center gap-3 bg-white text-stone-900 px-8 py-4 rounded-xl font-bold transition-all hover:bg-stone-50 group" href="#">
+<span class="material-symbols-outlined">download</span>
+                            Download PDF
+                        </a>
+</div>
+<!-- Decorative Element -->
+<div class="absolute -bottom-8 -right-8 opacity-10 rotate-12">
+<span class="material-symbols-outlined text-[120px]">description</span>
+</div>
+</div>
+<!-- Expertise Clusters (Bento-style chips) -->
+<div class="space-y-6">
+<h3 class="text-xs font-label uppercase tracking-widest font-semibold text-outline">Core Competencies</h3>
+<div class="flex flex-wrap gap-2">
+<span class="px-4 py-2 bg-tertiary-container text-on-tertiary-container rounded-lg text-sm font-medium">Architecture Design</span>
+<span class="px-4 py-2 bg-tertiary-container text-on-tertiary-container rounded-lg text-sm font-medium">Full-Stack Development</span>
+<span class="px-4 py-2 bg-tertiary-container text-on-tertiary-container rounded-lg text-sm font-medium">Cloud Infrastructure</span>
+<span class="px-4 py-2 bg-tertiary-container text-on-tertiary-container rounded-lg text-sm font-medium">UI/UX Strategy</span>
+<span class="px-4 py-2 bg-tertiary-container text-on-tertiary-container rounded-lg text-sm font-medium">API Engineering</span>
+</div>
+</div>
+<!-- Friendly Note -->
+<div class="p-8 border border-outline-variant/15 rounded-xl">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 bg-secondary-container">
+<img class="w-full h-full object-cover" data-alt="close-up portrait of a friendly professional smiling slightly, warm natural lighting, soft studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIKGII3mH7xVt7LkIvXPvkedyunbUPXZVj40kMV-x0Y5zHzni88AUwBBK55o9GNRBxQQ-Wy1j61LSZFLJ662WEx6P_pTzqi3bwgaxCHWSQKnJnKK231PGTTgvuJ7j0hlHBsYMoe6XO2wNUV1FClrq4__mLOaduaFfJ8aKyg8ooZzomVIPYpFN6EpoEwz-GfJYMXt1ZXE_jgZqJs5OKt0pIAaE1yFOsfNY1YuTJuutVyAJrgUff25DWcY9w_BYXSRVIoty9Vx2lomco"/>
+</div>
+<div>
+<p class="italic font-headline text-lg leading-snug">
+                                "I typically respond within 24 hours. Looking forward to our conversation."
+                            </p>
+<p class="text-xs font-label uppercase tracking-widest mt-2 text-outline">The Curator</p>
+</div>
+</div>
+</div>
+</aside>
+</div>
+<!-- Featured Project Preview (Tactile Editorial Pattern) -->
+<section class="mt-32">
+<div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+<h2 class="text-4xl font-headline">Latest Publication</h2>
+<a class="text-xs font-label uppercase tracking-widest font-semibold text-primary flex items-center gap-2 group" href="#">
+                    View Journal <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="relative aspect-[16/9] overflow-hidden rounded-xl">
+<img class="w-full h-full object-cover" data-alt="minimalist architectural office space with concrete walls, floor-to-ceiling windows, and warm sunset light hitting a clean desk" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCE5JPpXgbNk46sWFPce-6Tw7Uc-Y5oRGC3AbFzNEW8PZ7sUELxpitT2hcu-tSq8_UkNzDbzjEaVwdvVif45zoAOsnfbGA3g6aEkd7SvH3EsX8kJfdU7Vh_1zGblJP2v9Gd3R2UIvV3CYY9oiOsoA_xxrxmCH1LESildsUwfLBDZh2XDwPQrzQry2S2T52b0mu4z5MJrprrLqkgXa3hZWwqpFMYZdNajiREA3jqJPmKz2ApHJxAYjinT9h5GQUPbtNAIezoIQrQTqWi"/>
+<div class="absolute inset-0 bg-gradient-to-t from-stone-900/60 to-transparent flex flex-col justify-end p-8 text-white">
+<span class="text-xs uppercase tracking-widest font-medium opacity-80 mb-2">Case Study</span>
+<h4 class="text-2xl font-headline">Scaling Architecture for Modern Workspaces</h4>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container rounded-xl flex flex-col justify-center items-center p-8 text-center">
+<span class="material-symbols-outlined text-4xl text-primary mb-4">star_rate</span>
+<h5 class="text-3xl font-headline">12+</h5>
+<p class="text-xs font-label uppercase tracking-widest text-on-surface-variant">Global Awards</p>
+</div>
+<div class="bg-surface-container-high rounded-xl flex flex-col justify-center items-center p-8 text-center">
+<span class="material-symbols-outlined text-4xl text-primary mb-4">groups</span>
+<h5 class="text-3xl font-headline">40+</h5>
+<p class="text-xs font-label uppercase tracking-widest text-on-surface-variant">Happy Partners</p>
+</div>
+<div class="col-span-2 bg-secondary-container/30 rounded-xl p-8 flex items-center justify-between">
+<div>
+<h5 class="text-xl font-headline">Available for work</h5>
+<p class="text-sm text-on-secondary-container">Current capacity: Q4 2024</p>
+</div>
+<div class="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer Shell -->
+<footer class="w-full py-12 px-8 md:px-16 bg-stone-100 dark:bg-stone-950">
+<div class="flex flex-col md:flex-row justify-between items-center gap-6 max-w-screen-2xl mx-auto">
+<span class="text-stone-600 dark:text-stone-400 font-label text-xs uppercase tracking-widest font-semibold">
+                © 2024 The Digital Curator. Built with Intent.
+            </span>
+<div class="flex gap-8">
+<a class="text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-opacity" href="#">
+<span class="material-symbols-outlined">hub</span>
+</a>
+<a class="text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-opacity" href="#">
+<span class="material-symbols-outlined">contact_mail</span>
+</a>
+<a class="text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-opacity" href="#">
+<span class="material-symbols-outlined">terminal</span>
+</a>
+</div>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Curator.Dev | Building Scalable Digital Experiences</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-lowest": "#ffffff",
+              "primary-fixed": "#e4e2e1",
+              "secondary-fixed": "#f4e0bd",
+              "on-tertiary-fixed-variant": "#485e70",
+              "surface-container-low": "#f4f4f0",
+              "error-container": "#fe8b70",
+              "surface-tint": "#5f5e5e",
+              "tertiary": "#4c6174",
+              "on-tertiary-container": "#3f5466",
+              "error": "#9e422c",
+              "surface-container-high": "#e6e9e4",
+              "secondary-dim": "#5f5237",
+              "on-secondary-container": "#5d5035",
+              "on-primary-fixed": "#3f3f3f",
+              "on-tertiary-fixed": "#2c4253",
+              "inverse-primary": "#ffffff",
+              "error-dim": "#5c1202",
+              "on-primary": "#faf7f6",
+              "on-surface": "#2f3430",
+              "surface": "#faf9f6",
+              "background": "#faf9f6",
+              "on-secondary-fixed-variant": "#675a3e",
+              "on-secondary": "#fff8f0",
+              "primary": "#5f5e5e",
+              "primary-container": "#e4e2e1",
+              "on-primary-fixed-variant": "#5c5b5b",
+              "inverse-surface": "#0d0f0d",
+              "secondary-fixed-dim": "#e5d2b0",
+              "secondary": "#6b5d42",
+              "surface-dim": "#d6dbd5",
+              "outline": "#777c77",
+              "surface-container-highest": "#e0e4de",
+              "on-error-container": "#742410",
+              "tertiary-fixed-dim": "#c0d7ed",
+              "tertiary-dim": "#405568",
+              "on-primary-container": "#525251",
+              "on-surface-variant": "#5c605c",
+              "on-tertiary": "#f6f9ff",
+              "inverse-on-surface": "#9d9d9a",
+              "tertiary-fixed": "#cee5fb",
+              "primary-dim": "#535252",
+              "on-secondary-fixed": "#4a3e24",
+              "surface-container": "#edeeea",
+              "surface-bright": "#faf9f6",
+              "surface-variant": "#e0e4de",
+              "on-error": "#fff7f6",
+              "outline-variant": "#afb3ae",
+              "tertiary-container": "#cee5fb",
+              "secondary-container": "#f4e0bd",
+              "on-background": "#2f3430",
+              "primary-fixed-dim": "#d6d4d3"
+            },
+            fontFamily: {
+              "headline": ["Newsreader"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; background-color: #faf9f6; color: #2f3430; }
+        .font-serif { font-family: 'Newsreader', serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-secondary-container">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-stone-50/70 dark:bg-stone-900/70 backdrop-blur-xl">
+<div class="flex justify-between items-center px-8 md:px-16 py-6 max-w-screen-2xl mx-auto">
+<a class="text-2xl font-serif italic text-stone-900 dark:text-stone-50 tracking-tight" href="#">Curator.Dev</a>
+<!-- Desktop Links -->
+<div class="hidden md:flex items-center gap-12">
+<a class="text-stone-900 dark:text-stone-50 font-bold border-b-2 border-stone-800 dark:border-stone-200 pb-1 font-medium tracking-tight" href="#">Home</a>
+<a class="text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 transition-colors font-medium tracking-tight" href="#">Projects</a>
+<a class="text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 transition-colors font-medium tracking-tight" href="#">About</a>
+<a class="text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 transition-colors font-medium tracking-tight" href="#">Contact</a>
+</div>
+<button class="bg-gradient-to-br from-primary to-primary-dim text-on-primary px-8 py-3 rounded-full font-medium transition-all duration-300 active:scale-95 hover:shadow-lg hover:shadow-primary/10">
+                Resume
+            </button>
+</div>
+</nav>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative min-h-[921px] flex items-center px-8 md:px-16 max-w-screen-2xl mx-auto overflow-hidden">
+<!-- Background Abstract Elements (Milled/Tactile Feel) -->
+<div class="absolute right-[-10%] top-[10%] w-[600px] h-[600px] rounded-full bg-surface-container-low blur-[120px] -z-10"></div>
+<div class="absolute left-[-5%] bottom-[5%] w-[400px] h-[400px] rounded-full bg-secondary-container/20 blur-[100px] -z-10"></div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center w-full">
+<!-- Headline Content -->
+<div class="md:col-span-8 lg:col-span-7">
+<span class="inline-block font-label text-xs uppercase tracking-[0.2em] font-bold text-outline mb-6">Software Architect &amp; Curator</span>
+<h1 class="font-serif text-6xl md:text-8xl lg:text-[7rem] leading-[1.05] tracking-tight text-on-surface mb-10">
+                        Building Scalable <br/>
+<span class="italic text-primary-dim">Digital Experiences</span>
+</h1>
+<p class="font-body text-xl text-on-surface-variant max-w-xl mb-12 leading-relaxed">
+                        A synthesis of technical precision and editorial soul. Specializing in high-performance architectures that prioritize human intuition.
+                    </p>
+<div class="flex flex-wrap gap-6 items-center">
+<button class="bg-gradient-to-br from-primary to-primary-dim text-on-primary px-10 py-5 rounded-full font-medium text-lg transition-all duration-300 hover:scale-[1.02] active:scale-95 shadow-xl shadow-primary/20">
+                            View My Work
+                        </button>
+<a class="group flex items-center gap-3 font-medium text-on-surface hover:text-primary transition-colors" href="#">
+<span>The Philosophy</span>
+<span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Asymmetric Hero Graphic -->
+<div class="md:col-span-4 lg:col-span-5 relative mt-12 md:mt-0">
+<div class="relative w-full aspect-[4/5] bg-surface-container-high rounded-xl overflow-hidden shadow-2xl shadow-on-surface/5">
+<img alt="Abstract minimalist tech" class="w-full h-full object-cover grayscale opacity-80 mix-blend-multiply hover:scale-110 transition-transform duration-1000" data-alt="Minimalist abstract close-up of high-end circuit board patterns on cream paper texture with soft side lighting and shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeOsTuXMqV6S_50Z6CTjLO057HHYdns5EAthmgnPO0elVw5DjSeuY7NJQ47XALI8gtZTmHSMbfbKbp8epatMd-Fktl3uywWwQhJt0tp77uKkP5tXK9rKuc5VYvGTAwiewQMJ0Q3adsLfFFHgSpV118Rgkw-VLZ-46PnWD5q6TH3bubmv7T1RtORj8QmOZTc3q7kq4d9Pl3GTm6h9NwbEgYK-gM2YBl3GfHEdIpPb4wcliAIaXVj_wK1GVH9IIAKuVOiMwzh9Gbu10p"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-high/80 via-transparent to-transparent"></div>
+<!-- Floating Spec Chips -->
+<div class="absolute bottom-6 left-6 flex flex-col gap-3">
+<div class="bg-tertiary-container/90 backdrop-blur-md px-4 py-2 rounded-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-on-tertiary-container text-sm">terminal</span>
+<span class="font-label text-xs uppercase tracking-widest font-bold text-on-tertiary-container">Fullstack Engineering</span>
+</div>
+<div class="bg-secondary-container/90 backdrop-blur-md px-4 py-2 rounded-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-on-secondary-container text-sm">architecture</span>
+<span class="font-label text-xs uppercase tracking-widest font-bold text-on-secondary-container">System Design</span>
+</div>
+</div>
+</div>
+<!-- Decorative Element -->
+<div class="absolute -top-6 -right-6 w-32 h-32 bg-surface-container-lowest rounded-xl shadow-xl flex items-center justify-center -z-10 rotate-12">
+<span class="material-symbols-outlined text-4xl text-outline-variant opacity-30">deployed_code</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Featured Section (Bento Grid) -->
+<section class="bg-surface-container-low py-32 px-8 md:px-16">
+<div class="max-w-screen-2xl mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+<div class="max-w-2xl">
+<span class="font-label text-xs uppercase tracking-[0.2em] font-bold text-outline mb-4 block">Selection 2024</span>
+<h2 class="font-serif text-5xl text-on-surface leading-tight">Hand-crafted solutions for complex problems</h2>
+</div>
+<div class="hidden md:block w-32 h-[1px] bg-outline-variant/30 mb-4"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+<!-- Project 1 -->
+<div class="md:col-span-8 bg-surface-container-lowest rounded-xl p-4 transition-all duration-500 hover:shadow-2xl hover:shadow-on-surface/5 group">
+<div class="aspect-[16/9] w-full rounded-lg overflow-hidden bg-surface-container mb-8">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Modern clean software dashboard interface on a laptop screen with elegant typography and white space on a wooden desk" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMz6sblRNg3yv1fC9DbvDNP0z70V2jYQ1-I_s8Cjgx-JPLiWFQK6sSIRr93x8ySq6ilsoACPaafvBl9MBTXajFgA5s4zIZPpJKQJdneHsLTE9xdjec3rcQcKgKLvUrvUvLGPLVwNZ0SNuQa91RB6zhbJ6LhjPeOnZRuSSWX0sqRER-Z5Pk2P1Cj1PirHQcx-9ajuHL32RS5gzND8mWupkqgZHr3BwHyKNRtcxqzxaGcCSfQRepo--HIordZb3g5CNY9UJCqEPuRLEf"/>
+</div>
+<div class="px-4 pb-4">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="font-serif text-3xl mb-2">Artisan Analytics</h3>
+<p class="text-on-surface-variant font-body">Custom data engine for boutique galleries.</p>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">north_east</span>
+</div>
+<div class="flex gap-3">
+<span class="bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest font-label">Next.js</span>
+<span class="bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest font-label">PostgreSQL</span>
+</div>
+</div>
+</div>
+<!-- Project 2 -->
+<div class="md:col-span-4 bg-surface-container-highest rounded-xl p-4 transition-all duration-500 hover:shadow-2xl hover:shadow-on-surface/5 group">
+<div class="aspect-square w-full rounded-lg overflow-hidden bg-surface-container mb-8">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Crisp close-up of high-quality code on a dark monitor with purple and blue syntax highlighting in a professional studio" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5wCaNkCE6v0NOCRqNR0rVH7rdmEuXYiWRsK4IfPiBCWAQY447SZDh7dMPSaEFY0y3Vozc-APa6mCvL1v45RsPKCneo1vQ571fzlMG6lGahAx3qT88Sfxobq16vJbmnsnj8dnToreM5EQcedigJFYqdmOh3lsKi_a7hv7p4mPCbIKs2b9r3SGC8XBvauWREgGV-rcpmqBhQ9oOast9WuUFq6Hct-9oz0tuVYIwpIzSJe_DEK2irDRkDfbykVYUqs9ZR8hoPNZqpwYU"/>
+</div>
+<div class="px-4 pb-4">
+<h3 class="font-serif text-2xl mb-2">Protocol X</h3>
+<p class="text-on-surface-variant font-body text-sm mb-6">Open-source automation framework.</p>
+<span class="bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest font-label">Rust</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 px-8 md:px-16 bg-stone-100 dark:bg-stone-950">
+<div class="flex flex-col md:flex-row justify-between items-center gap-6 max-w-screen-2xl mx-auto">
+<p class="text-stone-600 dark:text-stone-400 font-label text-xs uppercase tracking-widest font-semibold">
+                © 2024 The Digital Curator. Built with Intent.
+            </p>
+<div class="flex items-center gap-10">
+<a class="text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-opacity" href="#">
+<span class="material-symbols-outlined text-2xl">hub</span>
+</a>
+<a class="text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-opacity" href="#">
+<span class="material-symbols-outlined text-2xl">contact_mail</span>
+</a>
+<a class="text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-opacity" href="#">
+<span class="material-symbols-outlined text-2xl">terminal</span>
+</a>
+</div>
+</div>
+</footer>
+</body></html>
