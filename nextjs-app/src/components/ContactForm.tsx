@@ -96,11 +96,6 @@ export default function ContactForm() {
           errors={state.errors}
         />
       </div>
-      {state.errors && state.errors.length > 0 && (
-        <div className="text-sm text-red-600">
-          <ValidationError errors={state.errors} />
-        </div>
-      )}
       <button
         type="submit"
         disabled={state.submitting}
