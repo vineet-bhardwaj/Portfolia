@@ -8,7 +8,7 @@ interface AboutMeData {
   tagline: string;
   title: string;
   description: string;
-  portrait?: string;
+  profileImage?: string;
 }
 
 interface ProfessionalJourneyData {
@@ -42,6 +42,8 @@ export default async function AboutPage() {
     }`
   );
 
+  console.log('About Me data from Sanity:', aboutMe);
+
   // Fetch Professional Journey from Sanity
   const journey: ProfessionalJourneyData | null = await client.fetch(
     `*[_type == "professionalJourney" && page == "about"][0]{
@@ -72,8 +74,11 @@ export default async function AboutPage() {
   const aboutMeData = aboutMe || {
     tagline: "Introduction",
     title: "About Me",
-    description: "A passionate software architect and digital curator dedicated to crafting meaningful digital experiences. With expertise spanning frontend and backend development, I specialize in creating elegant solutions to complex technical challenges."
+    description: "A passionate software architect and digital curator dedicated to crafting meaningful digital experiences. With expertise spanning frontend and backend development, I specialize in creating elegant solutions to complex technical challenges.",
+    profileImage: "https://lh3.googleusercontent.com/aida-public/AB6AXuAJpVrL1fB-BUL1ciePkTU9ZbMjx9xb9dRpUOUQiD6z5bELsfDDkHYM-Wh37urnkAD_SkhNcS7iWe3uon2y-X39akcKASXfcvp9HfSmSAWggUsFQZ8HeyQcnvjxNJHABqN2WNlS2F3tk5RbH5ZT7Hy_SxOh1yZIiR3kp4kqpmxYHQjHjBS7ruR7PU0ZDYGwM94uoh-xO6LjRst3F47VV-t2uX0SyGfCQTyJxBhvDm7uobDi8O47vP43_ksA90x3USUM9f5KgJiJ0k7F"
   };
+
+  console.log('About Me data being passed to component:', aboutMeData);
 
   // Fallback data for Professional Journey
   const journeyData = journey || {
@@ -126,7 +131,7 @@ export default async function AboutPage() {
         tagline={aboutMeData.tagline}
         title={aboutMeData.title}
         description={aboutMeData.description}
-        profileImage={aboutMeData.portrait}
+        profileImage={aboutMeData.profileImage}
       />
 
       {/* The Skill Ecosystem (Bento Grid) */}
