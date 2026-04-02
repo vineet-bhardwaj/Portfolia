@@ -60,10 +60,10 @@ export default defineType({
       title: 'label',
       subtitle: 'page',
     },
-    prepare({ title, page }) {
+    prepare({ title, subtitle }) {
       return {
         title: title || 'About Me',
-        subtitle: page ? `Page: ${page}` : 'No page selected',
+        subtitle: subtitle ? `Page: ${subtitle}` : 'No page selected',
       };
     },
   },
