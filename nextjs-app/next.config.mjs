@@ -16,6 +16,14 @@ const nextConfig = {
       },
     ],
   },
+  async rewrites() {
+    return [
+      {
+        source: "/decks/aigent-impact",
+        destination: "/decks/aigent-impact.html",
+      },
+    ];
+  },
 };
 
 export default nextConfig;
