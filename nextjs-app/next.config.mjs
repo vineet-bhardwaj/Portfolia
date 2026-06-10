@@ -22,6 +22,10 @@ const nextConfig = {
         source: "/decks/aigent-impact",
         destination: "/decks/aigent-impact.html",
       },
+      {
+        source: "/decks/aigent-impact-report",
+        destination: "/decks/aigent-impact-report.html",
+      },
     ];
   },
 };

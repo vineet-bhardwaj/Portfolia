@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>AIgent Impact Report — Kathryn Minniehan · Top Tier</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FAF7F2;
+    --bg-alt: #F2EDE3;
+    --ink: #1A1A1A;
+    --ink-soft: #4A4A4A;
+    --ink-mute: #8A8275;
+    --navy: #1F3864;
+    --navy-deep: #142850;
+    --coral: #E8754A;
+    --coral-soft: #FBEAE0;
+    --gold: #D4A24C;
+    --green: #2D7A4F;
+    --green-soft: #ECF5EE;
+    --red: #C44536;
+    --red-soft: #FBEAE7;
+    --border: #E5E0D5;
+    --border-soft: #EDE8DC;
+    --shadow: 0 1px 2px rgba(20,40,80,0.04), 0 8px 24px rgba(20,40,80,0.06);
+    --display: 'Fraunces', Georgia, serif;
+    --body: 'Plus Jakarta Sans', system-ui, sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  .container { max-width: 1000px; margin: 0 auto; padding: 0 32px; }
+
+  /* ========== COVER ========== */
+  .cover {
+    padding: 56px 0 44px;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+  }
+  .cover::before {
+    content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    background: linear-gradient(90deg, var(--green) 0%, var(--coral) 100%);
+  }
+  .cover-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 28px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+  .report-label { color: var(--coral); font-weight: 600; }
+  .cover-title {
+    font-family: var(--display);
+    font-size: clamp(36px, 5vw, 52px);
+    font-weight: 600;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--navy-deep);
+    margin-bottom: 8px;
+    font-variation-settings: "opsz" 120;
+  }
+  .cover-subtitle {
+    font-size: 17px;
+    color: var(--ink-mute);
+    margin-bottom: 32px;
+  }
+
+  /* ========== HERO SCORECARD ========== */
+  .hero-card {
+    background: white;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+  }
+  .hero-score-side {
+    background: linear-gradient(135deg, #142850 0%, #1F3864 100%);
+    padding: 36px 28px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .tier-pill {
+    display: inline-block;
+    padding: 6px 14px;
+    background: var(--green);
+    color: white;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border-radius: 100px;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+  .big-score {
+    font-family: var(--display);
+    font-size: 96px;
+    font-weight: 700;
+    line-height: 1;
+    color: white;
+    letter-spacing: -0.04em;
+    font-variation-settings: "opsz" 144;
+  }
+  .big-score .total {
+    font-size: 26px;
+    color: rgba(255,255,255,0.4);
+    font-weight: 500;
+  }
+  .score-lbl {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    margin-top: 6px;
+  }
+  .change-pill {
+    margin-top: 16px;
+    padding: 6px 14px;
+    background: rgba(45,122,79,0.25);
+    border: 1px solid rgba(45,122,79,0.5);
+    border-radius: 100px;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: #A9E6BC;
+    font-weight: 600;
+  }
+  .hero-detail-side {
+    padding: 32px 36px;
+  }
+  .verdict-headline {
+    font-family: var(--display);
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--navy-deep);
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+  }
+  .verdict-sub {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-mute);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+  }
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+  .hstat {
+    padding: 10px 12px;
+    background: var(--bg);
+    border-radius: 8px;
+    border-left: 3px solid var(--green);
+  }
+  .hstat .hsv {
+    font-family: var(--display);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--navy-deep);
+    line-height: 1;
+  }
+  .hstat .hsl {
+    font-family: var(--mono);
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-mute);
+    margin-top: 6px;
+  }
+  .verdict-msg {
+    padding: 14px 18px;
+    background: var(--green-soft);
+    border-radius: 8px;
+    border-left: 3px solid var(--green);
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--ink);
+  }
+
+  /* ========== SECTION COMMON ========== */
+  section { padding: 56px 0; border-bottom: 1px solid var(--border); }
+  section.alt { background: var(--bg-alt); }
+  .section-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--coral);
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  h2 {
+    font-family: var(--display);
+    font-size: clamp(26px, 3.5vw, 34px);
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    color: var(--navy-deep);
+    font-weight: 600;
+    margin-bottom: 12px;
+    font-variation-settings: "opsz" 100;
+  }
+  h2 em { font-style: italic; color: var(--coral); }
+  .section-lede {
+    font-size: 16px;
+    color: var(--ink-soft);
+    margin-bottom: 28px;
+    max-width: 720px;
+    line-height: 1.6;
+  }
+  h3 {
+    font-family: var(--display);
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--navy-deep);
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+  }
+  p { color: var(--ink); margin-bottom: 14px; max-width: 720px; }
+  strong { color: var(--navy-deep); font-weight: 600; }
+
+  /* ========== AI ENGINE RANKINGS ========== */
+  .engines-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin: 24px 0;
+  }
+  .engine-card {
+    background: white;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s;
+  }
+  .engine-card:hover { transform: translateY(-2px); }
+  .engine-header {
+    padding: 16px 18px;
+    border-bottom: 1px solid var(--border-soft);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .engine-dot {
+    width: 12px; height: 12px;
+    border-radius: 50%;
+  }
+  .engine-card.chatgpt .engine-dot { background: #10A37F; }
+  .engine-card.gemini .engine-dot { background: #4285F4; }
+  .engine-card.perplexity .engine-dot { background: #20808D; }
+  .engine-card.claude .engine-dot { background: #C97757; }
+  .engine-name {
+    font-family: var(--display);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--navy-deep);
+  }
+  .engine-body {
+    padding: 18px;
+  }
+  .engine-rank-display {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .rank-big {
+    font-family: var(--display);
+    font-size: 44px;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--coral);
+    letter-spacing: -0.03em;
+    font-variation-settings: "opsz" 144;
+  }
+  .rank-suffix {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-mute);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+  }
+  .engine-metric-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px dashed var(--border);
+    font-size: 12px;
+  }
+  .engine-metric-row:last-child { border-bottom: none; }
+  .em-label { color: var(--ink-mute); }
+  .em-value {
+    font-family: var(--mono);
+    color: var(--navy-deep);
+    font-weight: 600;
+  }
+  .engine-trend {
+    margin-top: 12px;
+    padding: 8px 12px;
+    background: var(--green-soft);
+    border-radius: 6px;
+    font-size: 12px;
+    font-family: var(--mono);
+    color: var(--green);
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .engine-trend.down {
+    background: var(--coral-soft);
+    color: var(--coral);
+  }
+  .engine-trend.flat {
+    background: var(--bg);
+    color: var(--ink-mute);
+  }
+
+  /* ========== INDEX SUMMARY ========== */
+  .index-summary {
+    background: white;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    padding: 24px 28px;
+    margin-top: 16px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 28px;
+    align-items: center;
+  }
+  .index-icon {
+    width: 56px; height: 56px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, var(--coral) 0%, var(--gold) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-family: var(--display);
+    font-size: 24px;
+    font-weight: 700;
+  }
+  .index-text strong {
+    display: block;
+    font-family: var(--display);
+    font-size: 18px;
+    color: var(--navy-deep);
+    margin-bottom: 4px;
+  }
+  .index-text span {
+    font-size: 14px;
+    color: var(--ink-soft);
+  }
+  .index-score {
+    font-family: var(--display);
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--coral);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+
+  /* ========== CATEGORY BREAKDOWN ========== */
+  .category-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin: 24px 0;
+  }
+  .cat-card {
+    background: white;
+    border-radius: 12px;
+    padding: 22px 24px;
+    border: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+  .cat-card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+  }
+  .cat-card.visibility::before { background: var(--coral); }
+  .cat-card.reputation::before { background: var(--navy); }
+  .cat-card.engagement::before { background: var(--green); }
+  .cat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 14px;
+  }
+  .cat-name {
+    font-family: var(--display);
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--navy-deep);
+  }
+  .cat-weight {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-mute);
+    padding: 2px 8px;
+    background: var(--bg);
+    border-radius: 4px;
+    font-weight: 600;
+  }
+  .cat-score-display {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    margin-bottom: 10px;
+  }
+  .cat-score {
+    font-family: var(--display);
+    font-size: 44px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+  .cat-card.visibility .cat-score { color: var(--coral); }
+  .cat-card.reputation .cat-score { color: var(--navy); }
+  .cat-card.engagement .cat-score { color: var(--green); }
+  .cat-max {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--ink-mute);
+  }
+  .cat-progress {
+    height: 6px;
+    background: var(--bg);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 12px;
+  }
+  .cat-progress-bar { height: 100%; border-radius: 3px; }
+  .cat-card.visibility .cat-progress-bar { background: var(--coral); }
+  .cat-card.reputation .cat-progress-bar { background: var(--navy); }
+  .cat-card.engagement .cat-progress-bar { background: var(--green); }
+  .cat-desc {
+    font-size: 12px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+
+  /* ========== COMPETITOR MOVEMENT ========== */
+  .compete-table-wrap {
+    background: white;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    margin: 20px 0;
+  }
+  .compete-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  .compete-table thead th {
+    background: var(--navy-deep);
+    color: white;
+    padding: 14px 16px;
+    text-align: left;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .compete-table tbody td {
+    padding: 16px;
+    border-bottom: 1px solid var(--border-soft);
+    vertical-align: middle;
+  }
+  .compete-table tbody tr:last-child td { border-bottom: none; }
+  .compete-table .rank-cell {
+    font-family: var(--display);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--coral);
+    width: 60px;
+  }
+  .compete-table .you-row {
+    background: linear-gradient(90deg, rgba(45,122,79,0.08) 0%, rgba(45,122,79,0.02) 100%);
+  }
+  .compete-table .you-row .rank-cell { color: var(--green); }
+  .agent-cell strong {
+    display: block;
+    font-size: 15px;
+    color: var(--navy-deep);
+    margin-bottom: 2px;
+  }
+  .agent-cell small {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-mute);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .carrier-tag {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 100px;
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+  }
+  .carrier-tag.allstate { background: #DCE6F2; color: var(--navy-deep); }
+  .carrier-tag.statefarm { background: #FBEAE7; color: var(--red); }
+  .carrier-tag.indep { background: #F2EDE3; color: var(--ink-soft); }
+  .carrier-tag.usaa { background: #ECF5EE; color: var(--green); }
+  .score-now {
+    font-family: var(--mono);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--navy-deep);
+  }
+  .movement-cell {
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 100px;
+    display: inline-block;
+  }
+  .movement-cell.up {
+    background: var(--green-soft);
+    color: var(--green);
+  }
+  .movement-cell.down {
+    background: var(--red-soft);
+    color: var(--red);
+  }
+  .movement-cell.flat {
+    background: var(--bg);
+    color: var(--ink-mute);
+  }
+
+  /* ========== MOVERS BOX ========== */
+  .movers-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 20px 0;
+  }
+  .mover-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px 22px;
+    border: 1px solid var(--border);
+  }
+  .mover-card.threat { border-left: 3px solid var(--red); }
+  .mover-card.opportunity { border-left: 3px solid var(--green); }
+  .mover-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .mover-card.threat .mover-label { color: var(--red); }
+  .mover-card.opportunity .mover-label { color: var(--green); }
+  .mover-name {
+    font-family: var(--display);
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--navy-deep);
+    margin-bottom: 4px;
+  }
+  .mover-detail {
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+
+  /* ========== ACTION PLAN BY CATEGORY ========== */
+  .action-category {
+    background: white;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+  .action-cat-header {
+    padding: 18px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+  }
+  .action-cat-header.visibility { background: var(--coral); }
+  .action-cat-header.reputation { background: var(--navy-deep); }
+  .action-cat-header.engagement { background: var(--green); }
+  .action-cat-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .action-cat-badge {
+    width: 36px; height: 36px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--display);
+    font-size: 18px;
+    font-weight: 700;
+  }
+  .action-cat-name {
+    font-family: var(--display);
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .action-cat-name small {
+    display: block;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    font-weight: 400;
+    margin-top: 2px;
+  }
+  .action-cat-score {
+    font-family: var(--display);
+    font-size: 26px;
+    font-weight: 700;
+    color: white;
+    letter-spacing: -0.02em;
+  }
+  .action-cat-score small {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: rgba(255,255,255,0.6);
+    font-weight: 500;
+  }
+  .action-list {
+    padding: 8px 0;
+  }
+  .action-row {
+    padding: 18px 24px;
+    border-bottom: 1px solid var(--border-soft);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 16px;
+    align-items: start;
+  }
+  .action-row:last-child { border-bottom: none; }
+  .action-text h4 {
+    font-family: var(--display);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--navy-deep);
+    margin-bottom: 6px;
+    letter-spacing: -0.01em;
+  }
+  .action-text p {
+    font-size: 14px;
+    color: var(--ink-soft);
+    margin: 0 0 8px;
+    line-height: 1.55;
+    max-width: none;
+  }
+  .action-impact {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-mute);
+    padding: 2px 8px;
+    background: var(--bg);
+    border-radius: 4px;
+    margin-right: 6px;
+  }
+  .action-impact strong {
+    color: var(--navy-deep);
+    font-weight: 700;
+  }
+  .action-meta {
+    text-align: right;
+    min-width: 110px;
+  }
+  .timeframe-pill {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 100px;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .tf-urgent { background: var(--red-soft); color: var(--red); }
+  .tf-medium { background: #FBF3E0; color: #8A6420; }
+  .tf-short { background: var(--green-soft); color: var(--green); }
+  .effort {
+    display: block;
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--ink-mute);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* ========== FOOTER ========== */
+  footer {
+    padding: 36px 0;
+    background: var(--navy-deep);
+    color: #C5BCA8;
+    text-align: center;
+  }
+  footer .container { max-width: 720px; }
+  footer .ftitle {
+    font-family: var(--display);
+    font-size: 22px;
+    color: white;
+    font-style: italic;
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
+  footer p {
+    color: #C5BCA8;
+    font-size: 13px;
+    margin: 0 auto 4px;
+    max-width: none;
+  }
+
+  /* ========== RESPONSIVE ========== */
+  @media (max-width: 820px) {
+    .container { padding: 0 20px; }
+    .hero-card { grid-template-columns: 1fr; }
+    .hero-score-side { padding: 28px 20px; }
+    .big-score { font-size: 72px; }
+    .hero-stats { grid-template-columns: repeat(2, 1fr); }
+    .engines-grid { grid-template-columns: repeat(2, 1fr); }
+    .category-grid { grid-template-columns: 1fr; }
+    .movers-grid { grid-template-columns: 1fr; }
+    .index-summary { grid-template-columns: 1fr; text-align: center; gap: 16px; }
+    .compete-table { font-size: 12px; }
+    .compete-table thead th, .compete-table tbody td { padding: 10px 8px; }
+    .action-row { grid-template-columns: 1fr; }
+    .action-meta { text-align: left; min-width: 0; }
+    section { padding: 40px 0; }
+    .cover { padding: 32px 0; }
+  }
+  @media print {
+    section { page-break-inside: avoid; padding: 32px 0; }
+    .engine-card, .cat-card, .action-category, .compete-table-wrap, .mover-card { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ========== COVER ========== -->
+<section class="cover">
+  <div class="container">
+    <div class="cover-meta">
+      <span class="report-label">AIgent Impact · Monthly Report · Top Tier</span>
+      <span>March 2026</span>
+    </div>
+    <h1 class="cover-title">Kathryn Minniehan</h1>
+    <p class="cover-subtitle">Allstate Insurance · 286 Clear Sky Ct, Clarksville, TN 37043</p>
+
+    <!-- Hero Scorecard -->
+    <div class="hero-card">
+      <div class="hero-score-side">
+        <span class="tier-pill">🏆 Top Tier</span>
+        <div class="big-score">85<span class="total">/100</span></div>
+        <div class="score-lbl">AIgent Impact Score</div>
+        <div class="change-pill">▲ +3 since February</div>
+      </div>
+      <div class="hero-detail-side">
+        <div class="verdict-headline">You are winning the AI recommendation moment in Clarksville.</div>
+        <div class="verdict-sub">Ranked #1 in 3 of 4 AI engines · 9-point lead over closest competitor</div>
+
+        <div class="hero-stats">
+          <div class="hstat">
+            <div class="hsv">#1</div>
+            <div class="hsl">Local AI Rank</div>
+          </div>
+          <div class="hstat">
+            <div class="hsv">84%</div>
+            <div class="hsl">Prompt Appearance</div>
+          </div>
+          <div class="hstat">
+            <div class="hsv">805</div>
+            <div class="hsl">Total Reviews</div>
+          </div>
+          <div class="hstat">
+            <div class="hsv">3×</div>
+            <div class="hsl">Best of Clarksville</div>
+          </div>
+        </div>
+
+        <div class="verdict-msg">
+          <strong style="color: var(--green);">This Month's Headline:</strong> Your lead held steady against JR Wade State Farm despite their +4 point gain. Engagement category continues to be your moat — no competitor in your market has comparable local press credentials.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SECTION 1: AI ENGINE RANKINGS ========== -->
+<section>
+  <div class="container">
+    <div class="section-num">01 · AIgent Impact Ranking on Key AI Engines</div>
+    <h2>How you <em>rank across each AI engine</em></h2>
+    <p class="section-lede">Your performance on the four AI engines that consumers use most often when searching for local insurance. Position reflects your average rank when surfaced; appearance rate is the percentage of tested local prompts where you appeared.</p>
+
+    <div class="engines-grid">
+      <!-- ChatGPT -->
+      <div class="engine-card chatgpt">
+        <div class="engine-header">
+          <div class="engine-dot"></div>
+          <div class="engine-name">ChatGPT</div>
+        </div>
+        <div class="engine-body">
+          <div class="engine-rank-display">
+            <div class="rank-big">#1</div>
+            <div class="rank-suffix">Local Rank</div>
+          </div>
+          <div class="engine-metric-row">
+            <span class="em-label">Appearance rate</span>
+            <span class="em-value">92%</span>
+          </div>
+          <div class="engine-metric-row">
+            <span class="em-label">Avg. position</span>
+            <span class="em-value">1.2</span>
+          </div>
+          <div class="engine-metric-row">
+            <span class="em-label">Citation rate</span>
+            <span class="em-value">74%</span>
+          </div>
+          <div class="engine-trend">
+            <span>▲ Improved</span>
+            <span>+5% vs Feb</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gemini -->
+      <div class="engine-card gemini">
+        <div class="engine-header">
+          <div class="engine-dot"></div>
+          <div class="engine-name">Gemini</div>
+        </div>
+        <div class="engine-body">
+          <div class="engine-rank-display">
+            <div class="rank-big">#1</div>
+            <div class="rank-suffix">Local Rank</div>
+          </div>
+          <div class="engine-metric-row">
+            <span class="em-label">Appearance rate</span>
+            <span class="em-value">88%</span>
+          </div>
+          <div class="engine-metric-row">
+            <span class="em-label">Avg. position</span>
+            <span class="em-value">1.4</span>
+          </div>
+          <div class="engine-metric-row">
+            <span class="em-label">Citation rate</span>
+            <span class="em-value">71%</span>
+          </div>
+          <div class="engine-trend">
+            <span>▲ Improved</span>
+            <span>+3% vs Feb</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Perplexity -->
+      <div class="engine-card perplexity">
+        <div class="engine-header">
+          <div class="engine-dot"></div>
+          <div class="engine-name">Perplexity</div>
+        </div>
+        <div class="engine-body">
+          <div class="engine-rank-display">
+            <div class="rank-big">#1</div>
+            <div class="rank-suffix">Local Rank</div>
+          </div>
+          <div class="engine-metric-row">
+            <span class="em-label">Appearance rate</span>
+            <span class="em-value">86%</span>
+          </div>
+          <div class="engine-metric-row">
+            <span class="em-label">Avg. position</span>
+            <span class="em-value">1.6</span>
+          </div>
+          <div class="engine-metric-row">
+            <span class="em-label">Citation rate</span>
+            <span class="em-value">82%</span>
+          </div>
+          <div class="engine-trend flat">
+            <span>─ Steady</span>
+            <span>No change</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Claude -->
+      <div class="engine-card claude">
+        <div class="engine-header">
+          <div class="engine-dot"></div>
+          <div class="engine-name">Claude</div>
+        </div>
+        <div class="engine-body">
+          <div class="engine-rank-display">
+            <div class="rank-big">#2</div>
+            <div class="rank-suffix">Local Rank</div>
+          </div>
+          <div class="engine-metric-row">
+            <span class="em-label">Appearance rate</span>
+            <span class="em-value">71%</span>
+          </div>
+          <div class="engine-metric-row">
+            <span class="em-label">Avg. position</span>
+            <span class="em-value">2.1</span>
+          </div>
+          <div class="engine-metric-row">
+            <span class="em-label">Citation rate</span>
+            <span class="em-value">58%</span>
+          </div>
+          <div class="engine-trend down">
+            <span>▼ Slipped</span>
+            <span>−4% vs Feb</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="index-summary">
+      <div class="index-icon">★</div>
+      <div class="index-text">
+        <strong>Composite AI Visibility Index</strong>
+        <span>Weighted average across all four engines · You're surfacing in 84% of all neutral local prompts tested this month</span>
+      </div>
+      <div class="index-score">84</div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SECTION 2: CATEGORY SCORES ========== -->
+<section class="alt">
+  <div class="container">
+    <div class="section-num">02 · Score by Category</div>
+    <h2>Your <em>85 points</em> broken down</h2>
+    <p class="section-lede">Your AIgent Impact Score is built from three categories: Visibility, Reputation, and Engagement. Here's where each one stands this month and which is contributing most to your overall position.</p>
+
+    <div class="category-grid">
+      <div class="cat-card visibility">
+        <div class="cat-header">
+          <div class="cat-name">Visibility</div>
+          <div class="cat-weight">40%</div>
+        </div>
+        <div class="cat-score-display">
+          <div class="cat-score">78</div>
+          <div class="cat-max">/ 100</div>
+        </div>
+        <div class="cat-progress">
+          <div class="cat-progress-bar" style="width: 78%;"></div>
+        </div>
+        <p class="cat-desc">Strong. NAP consistency, directory coverage, and AI discoverability are well-managed. Room to grow: claim 8 more directories.</p>
+      </div>
+
+      <div class="cat-card reputation">
+        <div class="cat-header">
+          <div class="cat-name">Reputation</div>
+          <div class="cat-weight">35%</div>
+        </div>
+        <div class="cat-score-display">
+          <div class="cat-score">92</div>
+          <div class="cat-max">/ 100</div>
+        </div>
+        <div class="cat-progress">
+          <div class="cat-progress-bar" style="width: 92%;"></div>
+        </div>
+        <p class="cat-desc">Exceptional. 805 reviews at 4.58★ puts you in the top 1% of Allstate agents nationally. Velocity is healthy and sustained.</p>
+      </div>
+
+      <div class="cat-card engagement">
+        <div class="cat-header">
+          <div class="cat-name">Engagement</div>
+          <div class="cat-weight">25%</div>
+        </div>
+        <div class="cat-score-display">
+          <div class="cat-score">88</div>
+          <div class="cat-max">/ 100</div>
+        </div>
+        <div class="cat-progress">
+          <div class="cat-progress-bar" style="width: 88%;"></div>
+        </div>
+        <p class="cat-desc">Excellent. Three-time Best of Clarksville winner. Community embeddedness is your single biggest competitive advantage.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SECTION 3: KEY COMPETITORS & MOVEMENT ========== -->
+<section>
+  <div class="container">
+    <div class="section-num">03 · Key Competitors &amp; Their Movement</div>
+    <h2>Who's <em>moving in your market</em></h2>
+    <p class="section-lede">Estimated AIgent Impact Scores for your top local competitors, with month-over-month movement. Watch the arrows — sustained movement is a stronger signal than absolute score.</p>
+
+    <div class="compete-table-wrap">
+      <table class="compete-table">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Agent / Agency</th>
+            <th>Carrier</th>
+            <th>Score (Now)</th>
+            <th>vs. Feb</th>
+            <th>Key Movement</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="you-row">
+            <td class="rank-cell">1</td>
+            <td class="agent-cell"><strong>Kathryn Minniehan (you)</strong><small>Clarksville · TN</small></td>
+            <td><span class="carrier-tag allstate">Allstate</span></td>
+            <td class="score-now">85</td>
+            <td><span class="movement-cell up">▲ +3</span></td>
+            <td>Improved Visibility and Engagement</td>
+          </tr>
+          <tr>
+            <td class="rank-cell">2</td>
+            <td class="agent-cell"><strong>JR Wade State Farm</strong><small>Clarksville · TN</small></td>
+            <td><span class="carrier-tag statefarm">State Farm</span></td>
+            <td class="score-now">76</td>
+            <td><span class="movement-cell up">▲ +4</span></td>
+            <td>+12 new reviews · pushing into ChatGPT</td>
+          </tr>
+          <tr>
+            <td class="rank-cell">3</td>
+            <td class="agent-cell"><strong>Clarksville Insurance Agency</strong><small>Independent · TN</small></td>
+            <td><span class="carrier-tag indep">Independent</span></td>
+            <td class="score-now">68</td>
+            <td><span class="movement-cell flat">─ 0</span></td>
+            <td>Stable position; no notable changes</td>
+          </tr>
+          <tr>
+            <td class="rank-cell">4</td>
+            <td class="agent-cell"><strong>Bryant Insurance Group</strong><small>Independent · TN</small></td>
+            <td><span class="carrier-tag indep">Independent</span></td>
+            <td class="score-now">62</td>
+            <td><span class="movement-cell down">▼ −2</span></td>
+            <td>Slight drop · review velocity slowed</td>
+          </tr>
+          <tr>
+            <td class="rank-cell">5</td>
+            <td class="agent-cell"><strong>Anderson Allstate Agency</strong><small>Clarksville · TN</small></td>
+            <td><span class="carrier-tag allstate">Allstate</span></td>
+            <td class="score-now">54</td>
+            <td><span class="movement-cell up">▲ +8</span></td>
+            <td>Big jump · launched local press campaign</td>
+          </tr>
+          <tr>
+            <td class="rank-cell">6</td>
+            <td class="agent-cell"><strong>Cherry Insurance &amp; Financial</strong><small>Independent · TN</small></td>
+            <td><span class="carrier-tag indep">Independent</span></td>
+            <td class="score-now">48</td>
+            <td><span class="movement-cell up">▲ +2</span></td>
+            <td>Modest growth in Facebook engagement</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="movers-grid">
+      <div class="mover-card threat">
+        <div class="mover-label">⚠ Watch Closely</div>
+        <div class="mover-name">JR Wade State Farm (+4)</div>
+        <div class="mover-detail">Closed the gap from 13 points to 9 points this month, primarily through a successful review acquisition push (+12 new reviews). Their ChatGPT appearance rate has nearly doubled. If this pace continues, your lead could shrink to single digits by Q3.</div>
+      </div>
+      <div class="mover-card opportunity">
+        <div class="mover-label">★ Biggest Mover</div>
+        <div class="mover-name">Anderson Allstate Agency (+8)</div>
+        <div class="mover-detail">A fellow Allstate agent in your market jumped 8 points after running a coordinated local press campaign in The Leaf Chronicle. Worth understanding their approach — there may be an opportunity for cross-collaboration rather than competition.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SECTION 4: ACTION PLAN BY CATEGORY ========== -->
+<section class="alt">
+  <div class="container">
+    <div class="section-num">04 · Your Action Plan for April</div>
+    <h2>What to <em>work on next month</em></h2>
+    <p class="section-lede">Actions organized by category so you can see exactly what will move each part of your score. Tagged URGENT, MEDIUM, or SHORT-TERM based on the impact-to-effort ratio. We'll execute most of these for you — items marked URGENT will be tackled this week.</p>
+
+    <!-- VISIBILITY ACTIONS -->
+    <div class="action-category">
+      <div class="action-cat-header visibility">
+        <div class="action-cat-title">
+          <div class="action-cat-badge">1</div>
+          <div class="action-cat-name">Visibility Actions<small>40% of score · Currently 78/100</small></div>
+        </div>
+        <div class="action-cat-score">78<small>/100</small></div>
+      </div>
+      <div class="action-list">
+        <div class="action-row">
+          <div class="action-text">
+            <h4>Reconcile BBB address inconsistency</h4>
+            <p>Update BBB listing from "345 Union St" to "286 Clear Sky Ct Ste B" to match all other platforms. Single change projected to lift NAP consistency from 90 to 100.</p>
+            <span class="action-impact"><strong>+4 pts</strong> to Visibility</span>
+            <span class="action-impact"><strong>+1.6 pts</strong> to total</span>
+          </div>
+          <div class="action-meta">
+            <span class="timeframe-pill tf-urgent">Urgent · 7 days</span>
+            <span class="effort">Low effort</span>
+          </div>
+        </div>
+
+        <div class="action-row">
+          <div class="action-text">
+            <h4>Claim Apple Maps, Bing Places, and Nextdoor profiles</h4>
+            <p>You're already strong on Google, Yelp, and BBB — expanding to these three additional directories closes the easiest visibility gap and gets you to 15 of 20 key platforms.</p>
+            <span class="action-impact"><strong>+6 pts</strong> to Visibility</span>
+            <span class="action-impact"><strong>+2.4 pts</strong> to total</span>
+          </div>
+          <div class="action-meta">
+            <span class="timeframe-pill tf-urgent">Urgent · 14 days</span>
+            <span class="effort">Medium effort</span>
+          </div>
+        </div>
+
+        <div class="action-row">
+          <div class="action-text">
+            <h4>Launch regional content for "middle Tennessee" queries</h4>
+            <p>You're invisible for state and regional AI queries — Claude scored you 4 points lower this month for this reason. We'll create 3 region-focused content pieces (Tennessee homeowner guide, middle TN auto insurance, Fort Campbell relocation insurance) to expand your geographic reach.</p>
+            <span class="action-impact"><strong>+5 pts</strong> to Visibility</span>
+            <span class="action-impact"><strong>+2.0 pts</strong> to total</span>
+          </div>
+          <div class="action-meta">
+            <span class="timeframe-pill tf-medium">Medium · 60 days</span>
+            <span class="effort">Higher effort</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- REPUTATION ACTIONS -->
+    <div class="action-category">
+      <div class="action-cat-header reputation">
+        <div class="action-cat-title">
+          <div class="action-cat-badge">2</div>
+          <div class="action-cat-name">Reputation Actions<small>35% of score · Currently 92/100</small></div>
+        </div>
+        <div class="action-cat-score">92<small>/100</small></div>
+      </div>
+      <div class="action-list">
+        <div class="action-row">
+          <div class="action-text">
+            <h4>Sustain review acquisition cadence</h4>
+            <p>Your velocity (14 reviews in 90 days) is excellent and is currently your moat against JR Wade's +12 review push. Continue current SMS and email follow-up workflow. Target: maintain 4+ new reviews per month at 4.5+ stars.</p>
+            <span class="action-impact"><strong>Defends</strong> Reputation lead</span>
+          </div>
+          <div class="action-meta">
+            <span class="timeframe-pill tf-short">Ongoing</span>
+            <span class="effort">Low effort</span>
+          </div>
+        </div>
+
+        <div class="action-row">
+          <div class="action-text">
+            <h4>Refresh Yelp and Facebook bios to match your allstate.com narrative</h4>
+            <p>Your allstate.com bio is strong with the "Clarksville native" story, but Yelp and Facebook bios still read more generic. We'll rewrite to match for consistency across all platforms — this strengthens the personal narrative AI engines pick up on.</p>
+            <span class="action-impact"><strong>+3 pts</strong> to Reputation</span>
+            <span class="action-impact"><strong>+1.0 pts</strong> to total</span>
+          </div>
+          <div class="action-meta">
+            <span class="timeframe-pill tf-medium">Medium · 30 days</span>
+            <span class="effort">Low effort</span>
+          </div>
+        </div>
+
+        <div class="action-row">
+          <div class="action-text">
+            <h4>Improve review response rate from 88% to 100%</h4>
+            <p>You're already responding to 88% of reviews. The remaining 12% is a quick win — even short "thank you" responses to positive reviews and proactive responses to neutral reviews would close the gap.</p>
+            <span class="action-impact"><strong>+2 pts</strong> to Reputation</span>
+            <span class="action-impact"><strong>+0.7 pts</strong> to total</span>
+          </div>
+          <div class="action-meta">
+            <span class="timeframe-pill tf-short">Ongoing</span>
+            <span class="effort">Low effort</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ENGAGEMENT ACTIONS -->
+    <div class="action-category">
+      <div class="action-cat-header engagement">
+        <div class="action-cat-title">
+          <div class="action-cat-badge">3</div>
+          <div class="action-cat-name">Engagement Actions<small>25% of score · Currently 88/100</small></div>
+        </div>
+        <div class="action-cat-score">88<small>/100</small></div>
+      </div>
+      <div class="action-list">
+        <div class="action-row">
+          <div class="action-text">
+            <h4>Pitch Leaf Chronicle for a 25-year anniversary feature</h4>
+            <p>Your milestone anniversary is a natural local press hook. We'll draft and pitch the story to The Leaf Chronicle's business editor. A successful feature would lock in another year of Engagement category dominance and add a fresh authority signal.</p>
+            <span class="action-impact"><strong>+4 pts</strong> to Engagement</span>
+            <span class="action-impact"><strong>+1.0 pts</strong> to total</span>
+          </div>
+          <div class="action-meta">
+            <span class="timeframe-pill tf-medium">Medium · 30 days</span>
+            <span class="effort">Medium effort</span>
+          </div>
+        </div>
+
+        <div class="action-row">
+          <div class="action-text">
+            <h4>Expand referral partnerships from 4 to 7 visible online</h4>
+            <p>You have 4 visible local partnerships; expanding to 7 would significantly boost your Referral Network Visibility sub-score. Top prospects this month: James Corlew Chevrolet, Coldwell Banker Conroy Marable &amp; Holleman, Reliant Realty Property Management. We'll coordinate intros.</p>
+            <span class="action-impact"><strong>+5 pts</strong> to Engagement</span>
+            <span class="action-impact"><strong>+1.3 pts</strong> to total</span>
+          </div>
+          <div class="action-meta">
+            <span class="timeframe-pill tf-medium">Medium · 60 days</span>
+            <span class="effort">Medium effort</span>
+          </div>
+        </div>
+
+        <div class="action-row">
+          <div class="action-text">
+            <h4>Sponsor one community event this quarter</h4>
+            <p>Anderson Allstate Agency (your #5 competitor) gained 8 points partly through a coordinated community sponsorship campaign. Adding one visible community sponsorship — youth sports, charity 5K, or local school fundraiser — would strengthen your community presence sub-score.</p>
+            <span class="action-impact"><strong>+3 pts</strong> to Engagement</span>
+            <span class="action-impact"><strong>+0.8 pts</strong> to total</span>
+          </div>
+          <div class="action-meta">
+            <span class="timeframe-pill tf-short">Short · 90 days</span>
+            <span class="effort">Higher effort</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p style="margin-top: 28px; text-align: center; font-size: 14px; color: var(--ink-soft);"><strong>Total projected score gain if all actions complete:</strong> +12 points — potential score of 97 by Q3 2026</p>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <div class="container">
+    <div class="ftitle">AIgent Impact</div>
+    <p>Monthly Report for Kathryn Minniehan · Allstate Insurance · Clarksville TN</p>
+    <p style="margin-top: 4px; color: #8A8275; font-size: 12px;">Report generated March 30, 2026 · Next refresh April 30, 2026 · Questions? Contact your AIgent Impact account team</p>
+  </div>
+</footer>
+
+</body>
+</html>
