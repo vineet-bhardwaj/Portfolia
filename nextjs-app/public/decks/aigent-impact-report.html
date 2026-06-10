@@ -389,6 +389,175 @@
     letter-spacing: -0.02em;
   }
 
+  /* ========== PERFORMING PROMPTS SECTION ========== */
+  .prompt-stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin: 24px 0;
+  }
+  .pstat {
+    background: white;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    padding: 18px 20px;
+    text-align: center;
+  }
+  .pstat-val {
+    font-family: var(--display);
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--coral);
+    letter-spacing: -0.03em;
+    font-variation-settings: "opsz" 144;
+  }
+  .pstat-lbl {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--ink-mute);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-top: 8px;
+  }
+
+  .prompts-table-wrap,
+  .opportunity-wrap {
+    background: white;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    margin: 20px 0;
+  }
+
+  .prompts-table-header,
+  .opportunity-header {
+    padding: 18px 24px;
+    background: var(--navy-deep);
+    color: white;
+  }
+  .opportunity-header { background: linear-gradient(135deg, var(--coral) 0%, #C95A35 100%); }
+
+  .prompts-table-header h3,
+  .opportunity-header h3 {
+    color: white;
+    font-size: 18px;
+    margin-bottom: 4px;
+    font-family: var(--display);
+    font-weight: 600;
+  }
+  .prompts-table-header p,
+  .opportunity-header p {
+    color: rgba(255,255,255,0.75);
+    font-size: 13px;
+    margin: 0;
+    max-width: none;
+  }
+
+  .prompts-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  .prompts-table thead th {
+    background: var(--bg);
+    padding: 12px 14px;
+    text-align: left;
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-mute);
+    font-weight: 600;
+    border-bottom: 1px solid var(--border);
+  }
+  .prompts-table tbody td {
+    padding: 14px;
+    border-bottom: 1px solid var(--border-soft);
+    vertical-align: middle;
+  }
+  .prompts-table tbody tr:last-child td { border-bottom: none; }
+  .prompts-table tbody tr:hover { background: var(--bg); }
+
+  .prompt-cell {
+    color: var(--ink);
+    font-weight: 500;
+    max-width: 280px;
+    line-height: 1.4;
+  }
+
+  .engine-tag {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 100px;
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+  .engine-tag.chatgpt { background: #DDF5EC; color: #10A37F; }
+  .engine-tag.gemini { background: #DDE7FA; color: #4285F4; }
+  .engine-tag.perplexity { background: #D8EBED; color: #20808D; }
+  .engine-tag.claude { background: #F4E3D9; color: #C97757; }
+
+  .status-pill {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 4px;
+  }
+  .status-pill.mentioned { background: var(--green-soft); color: var(--green); }
+  .status-pill.not-mentioned { background: var(--red-soft); color: var(--red); }
+
+  .position-pill {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    border-radius: 50%;
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 700;
+  }
+  .position-pill.rank-1 { background: var(--green); color: white; }
+  .position-pill.rank-2 { background: var(--gold); color: white; }
+  .position-pill.rank-3 { background: var(--coral); color: white; }
+  .position-pill.rank-none { background: var(--bg); color: var(--ink-mute); }
+
+  .cite-yes { color: var(--green); font-weight: 600; font-family: var(--mono); font-size: 12px; }
+  .cite-no { color: var(--ink-mute); font-family: var(--mono); font-size: 12px; }
+
+  .competitors-cell {
+    color: var(--ink-soft);
+    font-size: 12px;
+    font-style: italic;
+  }
+
+  .volume-tag {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 4px;
+  }
+  .volume-tag.high { background: var(--red-soft); color: var(--red); }
+  .volume-tag.medium { background: #FBF3E0; color: #8A6420; }
+  .volume-tag.low { background: var(--bg); color: var(--ink-mute); }
+
+  .opportunity-reason {
+    color: var(--ink-soft);
+    font-size: 12px;
+  }
+
   /* ========== CATEGORY BREAKDOWN ========== */
   .category-grid {
     display: grid;
@@ -775,12 +944,16 @@
     .compete-table thead th, .compete-table tbody td { padding: 10px 8px; }
     .action-row { grid-template-columns: 1fr; }
     .action-meta { text-align: left; min-width: 0; }
+    .prompt-stats-row { grid-template-columns: repeat(2, 1fr); }
+    .prompts-table { font-size: 11px; }
+    .prompts-table thead th, .prompts-table tbody td { padding: 10px 8px; }
+    .prompt-cell { max-width: 140px; font-size: 11px; }
     section { padding: 40px 0; }
     .cover { padding: 32px 0; }
   }
   @media print {
     section { page-break-inside: avoid; padding: 32px 0; }
-    .engine-card, .cat-card, .action-category, .compete-table-wrap, .mover-card { break-inside: avoid; }
+    .engine-card, .cat-card, .action-category, .compete-table-wrap, .mover-card, .prompts-table-wrap, .opportunity-wrap { break-inside: avoid; }
   }
 </style>
 </head>
@@ -975,10 +1148,196 @@
   </div>
 </section>
 
-<!-- ========== SECTION 2: CATEGORY SCORES ========== -->
+<!-- ========== SECTION 2: PERFORMING PROMPTS ========== -->
 <section class="alt">
   <div class="container">
-    <div class="section-num">02 · Score by Category</div>
+    <div class="section-num">02 · Your Performing Prompts</div>
+    <h2>The prompts where you <em>actually surfaced</em></h2>
+    <p class="section-lede">Specific local prompts tested this month across the four AI engines. For each prompt, you can see whether you appeared, what position you held, which AI engine cited you, and which competitors appeared alongside you. This is the ground truth behind your AI Visibility Index.</p>
+
+    <div class="prompt-stats-row">
+      <div class="pstat">
+        <div class="pstat-val">100</div>
+        <div class="pstat-lbl">Prompts Tested</div>
+      </div>
+      <div class="pstat">
+        <div class="pstat-val">84</div>
+        <div class="pstat-lbl">You Appeared In</div>
+      </div>
+      <div class="pstat">
+        <div class="pstat-val">62</div>
+        <div class="pstat-lbl">Cited As Source</div>
+      </div>
+      <div class="pstat">
+        <div class="pstat-val">1.6</div>
+        <div class="pstat-lbl">Avg. Position</div>
+      </div>
+    </div>
+
+    <div class="prompts-table-wrap">
+      <div class="prompts-table-header">
+        <h3>Top Performing Prompts</h3>
+        <p>Where you appeared and ranked highest this month</p>
+      </div>
+      <table class="prompts-table">
+        <thead>
+          <tr>
+            <th>Prompt</th>
+            <th>AI Engine</th>
+            <th>Your Status</th>
+            <th>Position</th>
+            <th>Cited?</th>
+            <th>Top Competitors Named</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="prompt-cell">Best insurance agent in Clarksville TN</td>
+            <td><span class="engine-tag chatgpt">ChatGPT</span></td>
+            <td><span class="status-pill mentioned">Mentioned</span></td>
+            <td><span class="position-pill rank-1">1</span></td>
+            <td><span class="cite-yes">✓ Yes</span></td>
+            <td class="competitors-cell">JR Wade (State Farm), 2 independents</td>
+          </tr>
+          <tr>
+            <td class="prompt-cell">Top auto insurance agent Clarksville TN</td>
+            <td><span class="engine-tag chatgpt">ChatGPT</span></td>
+            <td><span class="status-pill mentioned">Mentioned</span></td>
+            <td><span class="position-pill rank-1">1</span></td>
+            <td><span class="cite-yes">✓ Yes</span></td>
+            <td class="competitors-cell">JR Wade (State Farm), 1 independent</td>
+          </tr>
+          <tr>
+            <td class="prompt-cell">Top rated insurance agencies in Clarksville</td>
+            <td><span class="engine-tag gemini">Gemini</span></td>
+            <td><span class="status-pill mentioned">Mentioned</span></td>
+            <td><span class="position-pill rank-1">1</span></td>
+            <td><span class="cite-yes">✓ Yes</span></td>
+            <td class="competitors-cell">JR Wade (State Farm), 3 independents</td>
+          </tr>
+          <tr>
+            <td class="prompt-cell">Best home insurance agent near Fort Campbell</td>
+            <td><span class="engine-tag chatgpt">ChatGPT</span></td>
+            <td><span class="status-pill mentioned">Mentioned</span></td>
+            <td><span class="position-pill rank-1">1</span></td>
+            <td><span class="cite-yes">✓ Yes</span></td>
+            <td class="competitors-cell">USAA, JR Wade (State Farm)</td>
+          </tr>
+          <tr>
+            <td class="prompt-cell">Recommend a local insurance agent in 37043</td>
+            <td><span class="engine-tag perplexity">Perplexity</span></td>
+            <td><span class="status-pill mentioned">Mentioned</span></td>
+            <td><span class="position-pill rank-2">2</span></td>
+            <td><span class="cite-yes">✓ Yes</span></td>
+            <td class="competitors-cell">Anderson Allstate, JR Wade</td>
+          </tr>
+          <tr>
+            <td class="prompt-cell">Insurance agent for military families Clarksville</td>
+            <td><span class="engine-tag chatgpt">ChatGPT</span></td>
+            <td><span class="status-pill mentioned">Mentioned</span></td>
+            <td><span class="position-pill rank-2">2</span></td>
+            <td><span class="cite-no">— No</span></td>
+            <td class="competitors-cell">USAA, JR Wade (State Farm)</td>
+          </tr>
+          <tr>
+            <td class="prompt-cell">Compare insurance agents in Clarksville TN</td>
+            <td><span class="engine-tag perplexity">Perplexity</span></td>
+            <td><span class="status-pill mentioned">Mentioned</span></td>
+            <td><span class="position-pill rank-2">2</span></td>
+            <td><span class="cite-yes">✓ Yes</span></td>
+            <td class="competitors-cell">JR Wade (State Farm), 2 independents</td>
+          </tr>
+          <tr>
+            <td class="prompt-cell">Local insurance agent on Madison St Clarksville</td>
+            <td><span class="engine-tag gemini">Gemini</span></td>
+            <td><span class="status-pill mentioned">Mentioned</span></td>
+            <td><span class="position-pill rank-3">3</span></td>
+            <td><span class="cite-no">— No</span></td>
+            <td class="competitors-cell">Clarksville Insurance, Bryant Group</td>
+          </tr>
+          <tr>
+            <td class="prompt-cell">Insurance agent for first-time homebuyers in Clarksville</td>
+            <td><span class="engine-tag claude">Claude</span></td>
+            <td><span class="status-pill mentioned">Mentioned</span></td>
+            <td><span class="position-pill rank-3">3</span></td>
+            <td><span class="cite-no">— No</span></td>
+            <td class="competitors-cell">2 independents, JR Wade</td>
+          </tr>
+          <tr>
+            <td class="prompt-cell">Best insurance agent in middle Tennessee</td>
+            <td><span class="engine-tag claude">Claude</span></td>
+            <td><span class="status-pill not-mentioned">Not Mentioned</span></td>
+            <td><span class="position-pill rank-none">—</span></td>
+            <td><span class="cite-no">— No</span></td>
+            <td class="competitors-cell">Nashville agents, State Farm regional</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="opportunity-wrap">
+      <div class="opportunity-header">
+        <h3>Prompt Opportunities</h3>
+        <p>High-volume local prompts where competitors are appearing but you are not — primary growth targets</p>
+      </div>
+      <table class="prompts-table opportunity-table">
+        <thead>
+          <tr>
+            <th>Prompt</th>
+            <th>AI Engine</th>
+            <th>AI Volume</th>
+            <th>Top Brand Surfacing</th>
+            <th>Why You're Missing</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="prompt-cell">Best insurance agent in middle Tennessee</td>
+            <td><span class="engine-tag claude">Claude</span></td>
+            <td><span class="volume-tag high">High</span></td>
+            <td class="competitors-cell">Nashville State Farm agents</td>
+            <td class="opportunity-reason">No regional content targeting "middle Tennessee" geography</td>
+          </tr>
+          <tr>
+            <td class="prompt-cell">Tennessee insurance agent recommendations</td>
+            <td><span class="engine-tag gemini">Gemini</span></td>
+            <td><span class="volume-tag high">High</span></td>
+            <td class="competitors-cell">Nashville &amp; Memphis agents</td>
+            <td class="opportunity-reason">State-level queries dominated by metro agents</td>
+          </tr>
+          <tr>
+            <td class="prompt-cell">Insurance for new Fort Campbell residents</td>
+            <td><span class="engine-tag chatgpt">ChatGPT</span></td>
+            <td><span class="volume-tag medium">Medium</span></td>
+            <td class="competitors-cell">USAA, JR Wade State Farm</td>
+            <td class="opportunity-reason">USAA dominates military-specific intent</td>
+          </tr>
+          <tr>
+            <td class="prompt-cell">Best Spanish-speaking insurance agent Clarksville</td>
+            <td><span class="engine-tag perplexity">Perplexity</span></td>
+            <td><span class="volume-tag low">Low</span></td>
+            <td class="competitors-cell">1 independent</td>
+            <td class="opportunity-reason">Language-specific niche not currently claimed</td>
+          </tr>
+          <tr>
+            <td class="prompt-cell">Affordable insurance agent in 37043</td>
+            <td><span class="engine-tag claude">Claude</span></td>
+            <td><span class="volume-tag medium">Medium</span></td>
+            <td class="competitors-cell">Independents, online quotes</td>
+            <td class="opportunity-reason">"Affordable" intent skews toward independents and aggregators</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p style="margin-top: 20px; font-size: 14px; color: var(--ink-soft);"><strong>Key takeaway:</strong> You dominate Clarksville-specific local prompts but lose state and regional queries to metro agents. The single biggest opportunity is creating regional content for "middle Tennessee" intent — projected to lift your Claude appearance rate from 71% to 85%+ over 90 days.</p>
+  </div>
+</section>
+
+<!-- ========== SECTION 3: CATEGORY SCORES ========== -->
+<section>
+  <div class="container">
+    <div class="section-num">03 · Score by Category</div>
     <h2>Your <em>85 points</em> broken down</h2>
     <p class="section-lede">Your AIgent Impact Score is built from three categories: Visibility, Reputation, and Engagement. Here's where each one stands this month and which is contributing most to your overall position.</p>
 
@@ -1031,10 +1390,10 @@
   </div>
 </section>
 
-<!-- ========== SECTION 3: KEY COMPETITORS & MOVEMENT ========== -->
-<section>
+<!-- ========== SECTION 4: KEY COMPETITORS & MOVEMENT ========== -->
+<section class="alt">
   <div class="container">
-    <div class="section-num">03 · Key Competitors &amp; Their Movement</div>
+    <div class="section-num">04 · Key Competitors &amp; Their Movement</div>
     <h2>Who's <em>moving in your market</em></h2>
     <p class="section-lede">Estimated AIgent Impact Scores for your top local competitors, with month-over-month movement. Watch the arrows — sustained movement is a stronger signal than absolute score.</p>
 
@@ -1118,10 +1477,10 @@
   </div>
 </section>
 
-<!-- ========== SECTION 4: ACTION PLAN BY CATEGORY ========== -->
-<section class="alt">
+<!-- ========== SECTION 5: ACTION PLAN BY CATEGORY ========== -->
+<section>
   <div class="container">
-    <div class="section-num">04 · Your Action Plan for April</div>
+    <div class="section-num">05 · Your Action Plan for April</div>
     <h2>What to <em>work on next month</em></h2>
     <p class="section-lede">Actions organized by category so you can see exactly what will move each part of your score. Tagged URGENT, MEDIUM, or SHORT-TERM based on the impact-to-effort ratio. We'll execute most of these for you — items marked URGENT will be tackled this week.</p>
 
