@@ -7,29 +7,45 @@
 <title>AIgent Impact Report — Kathryn Minniehan · Top Tier</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #FAF7F2;
-    --bg-alt: #F2EDE3;
-    --ink: #1A1A1A;
-    --ink-soft: #4A4A4A;
-    --ink-mute: #8A8275;
-    --navy: #1F3864;
-    --navy-deep: #142850;
-    --coral: #E8754A;
-    --coral-soft: #FBEAE0;
-    --gold: #D4A24C;
-    --green: #2D7A4F;
-    --green-soft: #ECF5EE;
-    --red: #C44536;
-    --red-soft: #FBEAE7;
-    --border: #E5E0D5;
-    --border-soft: #EDE8DC;
-    --shadow: 0 1px 2px rgba(20,40,80,0.04), 0 8px 24px rgba(20,40,80,0.06);
-    --display: 'Fraunces', Georgia, serif;
+    /* Cool near-white surfaces */
+    --bg: #F7F9FE;
+    --bg-alt: #EEF3FD;
+    --surface: #FFFFFF;
+
+    /* Navy-tinted ink scale */
+    --ink: #08163B;
+    --ink-soft: #3A4A72;
+    --ink-mute: #6B7AA0;
+
+    /* Brand navy + azure */
+    --navy: #01267C;
+    --navy-deep: #0A1E5E;
+    --azure: #4B8DFA;
+    --azure-600: #2E6FF2;
+    --azure-400: #6FA6FB;
+
+    /* Warm coral accent (negative / engagement pillar) */
+    --coral: #DE7D6C;
+    --coral-soft: rgba(222, 125, 108, 0.13);
+
+    /* Functional data colors */
+    --gold: #F2A33C;
+    --gold-soft: rgba(242, 163, 60, 0.14);
+    --green: #1FB97A;
+    --green-soft: rgba(31, 185, 122, 0.14);
+    --red: #EF5A6F;
+    --red-soft: rgba(239, 90, 111, 0.13);
+
+    --border: #E1E8F5;
+    --border-soft: #EEF3FD;
+    --shadow: 0 1px 3px rgba(8,22,59,0.06), 0 12px 30px -12px rgba(8,22,59,0.16);
+
+    --display: 'Plus Jakarta Sans', system-ui, sans-serif;
     --body: 'Plus Jakarta Sans', system-ui, sans-serif;
-    --mono: 'JetBrains Mono', monospace;
+    --mono: 'JetBrains Mono', ui-monospace, monospace;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
@@ -51,7 +67,7 @@
   }
   .cover::before {
     content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px;
-    background: linear-gradient(90deg, var(--green) 0%, var(--coral) 100%);
+    background: linear-gradient(90deg, var(--navy) 0%, var(--azure) 100%);
   }
   .cover-meta {
     display: flex;
@@ -68,12 +84,11 @@
   .cover-title {
     font-family: var(--display);
     font-size: clamp(36px, 5vw, 52px);
-    font-weight: 600;
+    font-weight: 800;
     line-height: 1.05;
-    letter-spacing: -0.02em;
-    color: var(--navy-deep);
+    letter-spacing: -0.035em;
+    color: var(--navy);
     margin-bottom: 8px;
-    font-variation-settings: "opsz" 120;
   }
   .cover-subtitle {
     font-size: 17px;
@@ -92,7 +107,7 @@
     grid-template-columns: 300px 1fr;
   }
   .hero-score-side {
-    background: linear-gradient(135deg, #142850 0%, #1F3864 100%);
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-deep) 100%);
     padding: 36px 28px;
     color: white;
     display: flex;
@@ -121,7 +136,6 @@
     line-height: 1;
     color: white;
     letter-spacing: -0.04em;
-    font-variation-settings: "opsz" 144;
   }
   .big-score .total {
     font-size: 26px;
@@ -139,12 +153,12 @@
   .change-pill {
     margin-top: 16px;
     padding: 6px 14px;
-    background: rgba(45,122,79,0.25);
-    border: 1px solid rgba(45,122,79,0.5);
+    background: rgba(31, 185, 122, 0.25);
+    border: 1px solid rgba(31, 185, 122, 0.5);
     border-radius: 100px;
     font-family: var(--mono);
     font-size: 11px;
-    color: #A9E6BC;
+    color: #7BE3B5;
     font-weight: 600;
   }
   .hero-detail-side {
@@ -212,7 +226,7 @@
     font-size: 11px;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--coral);
+    color: var(--azure-600);
     font-weight: 600;
     margin-bottom: 10px;
   }
@@ -220,13 +234,12 @@
     font-family: var(--display);
     font-size: clamp(26px, 3.5vw, 34px);
     line-height: 1.15;
-    letter-spacing: -0.015em;
-    color: var(--navy-deep);
-    font-weight: 600;
+    letter-spacing: -0.03em;
+    color: var(--navy);
+    font-weight: 800;
     margin-bottom: 12px;
-    font-variation-settings: "opsz" 100;
   }
-  h2 em { font-style: italic; color: var(--coral); }
+  h2 em { font-style: italic; color: var(--azure-600); font-weight: 700; }
   .section-lede {
     font-size: 16px;
     color: var(--ink-soft);
@@ -294,11 +307,10 @@
   .rank-big {
     font-family: var(--display);
     font-size: 44px;
-    font-weight: 700;
+    font-weight: 800;
     line-height: 1;
-    color: var(--coral);
-    letter-spacing: -0.03em;
-    font-variation-settings: "opsz" 144;
+    color: var(--navy);
+    letter-spacing: -0.04em;
   }
   .rank-suffix {
     font-family: var(--mono);
@@ -360,7 +372,7 @@
   .index-icon {
     width: 56px; height: 56px;
     border-radius: 14px;
-    background: linear-gradient(135deg, var(--coral) 0%, var(--gold) 100%);
+    background: linear-gradient(135deg, var(--navy) 0%, var(--azure) 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -383,10 +395,10 @@
   .index-score {
     font-family: var(--display);
     font-size: 36px;
-    font-weight: 700;
-    color: var(--coral);
+    font-weight: 800;
+    color: var(--navy);
     line-height: 1;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.035em;
   }
 
   /* ========== PERFORMING PROMPTS SECTION ========== */
@@ -406,11 +418,10 @@
   .pstat-val {
     font-family: var(--display);
     font-size: 36px;
-    font-weight: 700;
+    font-weight: 800;
     line-height: 1;
-    color: var(--coral);
-    letter-spacing: -0.03em;
-    font-variation-settings: "opsz" 144;
+    color: var(--navy);
+    letter-spacing: -0.04em;
   }
   .pstat-lbl {
     font-family: var(--mono);
@@ -437,7 +448,7 @@
     background: var(--navy-deep);
     color: white;
   }
-  .opportunity-header { background: linear-gradient(135deg, var(--coral) 0%, #C95A35 100%); }
+  .opportunity-header { background: linear-gradient(135deg, var(--coral) 0%, #B85C49 100%); }
 
   .prompts-table-header h3,
   .opportunity-header h3 {
@@ -579,9 +590,9 @@
     top: 0; left: 0; right: 0;
     height: 4px;
   }
-  .cat-card.visibility::before { background: var(--coral); }
-  .cat-card.reputation::before { background: var(--navy); }
-  .cat-card.engagement::before { background: var(--green); }
+  .cat-card.visibility::before { background: var(--navy); }
+  .cat-card.reputation::before { background: var(--azure-400); }
+  .cat-card.engagement::before { background: var(--coral); }
   .cat-header {
     display: flex;
     justify-content: space-between;
@@ -616,9 +627,9 @@
     line-height: 1;
     letter-spacing: -0.03em;
   }
-  .cat-card.visibility .cat-score { color: var(--coral); }
-  .cat-card.reputation .cat-score { color: var(--navy); }
-  .cat-card.engagement .cat-score { color: var(--green); }
+  .cat-card.visibility .cat-score { color: var(--navy); }
+  .cat-card.reputation .cat-score { color: var(--azure-600); }
+  .cat-card.engagement .cat-score { color: var(--coral); }
   .cat-max {
     font-family: var(--mono);
     font-size: 13px;
@@ -632,9 +643,9 @@
     margin-bottom: 12px;
   }
   .cat-progress-bar { height: 100%; border-radius: 3px; }
-  .cat-card.visibility .cat-progress-bar { background: var(--coral); }
-  .cat-card.reputation .cat-progress-bar { background: var(--navy); }
-  .cat-card.engagement .cat-progress-bar { background: var(--green); }
+  .cat-card.visibility .cat-progress-bar { background: var(--navy); }
+  .cat-card.reputation .cat-progress-bar { background: var(--azure-400); }
+  .cat-card.engagement .cat-progress-bar { background: var(--coral); }
   .cat-desc {
     font-size: 12px;
     color: var(--ink-soft);
@@ -675,12 +686,12 @@
   .compete-table .rank-cell {
     font-family: var(--display);
     font-size: 22px;
-    font-weight: 700;
-    color: var(--coral);
+    font-weight: 800;
+    color: var(--navy);
     width: 60px;
   }
   .compete-table .you-row {
-    background: linear-gradient(90deg, rgba(45,122,79,0.08) 0%, rgba(45,122,79,0.02) 100%);
+    background: linear-gradient(90deg, rgba(31,185,122,0.10) 0%, rgba(31,185,122,0.02) 100%);
   }
   .compete-table .you-row .rank-cell { color: var(--green); }
   .agent-cell strong {
@@ -706,10 +717,10 @@
     letter-spacing: 0.08em;
     font-weight: 600;
   }
-  .carrier-tag.allstate { background: #DCE6F2; color: var(--navy-deep); }
-  .carrier-tag.statefarm { background: #FBEAE7; color: var(--red); }
-  .carrier-tag.indep { background: #F2EDE3; color: var(--ink-soft); }
-  .carrier-tag.usaa { background: #ECF5EE; color: var(--green); }
+  .carrier-tag.allstate { background: #DCE6F8; color: var(--navy); }
+  .carrier-tag.statefarm { background: var(--red-soft); color: var(--red); }
+  .carrier-tag.indep { background: var(--bg-alt); color: var(--ink-soft); }
+  .carrier-tag.usaa { background: var(--green-soft); color: var(--green); }
   .score-now {
     font-family: var(--mono);
     font-size: 18px;
@@ -790,9 +801,9 @@
     align-items: center;
     color: white;
   }
-  .action-cat-header.visibility { background: var(--coral); }
-  .action-cat-header.reputation { background: var(--navy-deep); }
-  .action-cat-header.engagement { background: var(--green); }
+  .action-cat-header.visibility { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-deep) 100%); }
+  .action-cat-header.reputation { background: linear-gradient(135deg, var(--azure-600) 0%, var(--azure-400) 100%); }
+  .action-cat-header.engagement { background: linear-gradient(135deg, var(--coral) 0%, #C76755 100%); }
   .action-cat-title {
     display: flex;
     align-items: center;
