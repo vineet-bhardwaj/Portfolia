@@ -1,0 +1,1566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>AIgent Impact Report — Jose De Santiago · Bottom Tier</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* Cool near-white surfaces */
+    --bg: #F7F9FE;
+    --bg-alt: #EEF3FD;
+    --surface: #FFFFFF;
+
+    /* Navy-tinted ink scale */
+    --ink: #08163B;
+    --ink-soft: #3A4A72;
+    --ink-mute: #6B7AA0;
+
+    /* Brand navy + azure */
+    --navy: #01267C;
+    --navy-deep: #0A1E5E;
+    --azure: #4B8DFA;
+    --azure-600: #2E6FF2;
+    --azure-400: #6FA6FB;
+
+    /* Warm coral accent (engagement pillar / warm warning) */
+    --coral: #DE7D6C;
+    --coral-soft: rgba(222, 125, 108, 0.13);
+
+    /* Functional data colors */
+    --gold: #F2A33C;
+    --gold-soft: rgba(242, 163, 60, 0.14);
+    --green: #1FB97A;
+    --green-soft: rgba(31, 185, 122, 0.14);
+    --red: #EF5A6F;
+    --red-soft: rgba(239, 90, 111, 0.13);
+    --red-deep: #B83A4D;
+
+    --border: #E1E8F5;
+    --border-soft: #EEF3FD;
+    --shadow: 0 1px 3px rgba(8,22,59,0.06), 0 12px 30px -12px rgba(8,22,59,0.16);
+
+    --display: 'Plus Jakarta Sans', system-ui, sans-serif;
+    --body: 'Plus Jakarta Sans', system-ui, sans-serif;
+    --mono: 'JetBrains Mono', ui-monospace, monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  .container { max-width: 1000px; margin: 0 auto; padding: 0 32px; }
+
+  /* ========== COVER ========== */
+  .cover {
+    padding: 56px 0 44px;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+  }
+  .cover::before {
+    content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    background: linear-gradient(90deg, var(--navy) 0%, var(--azure) 100%);
+  }
+  .cover-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 28px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+  .report-label { color: var(--coral); font-weight: 600; }
+  .cover-title {
+    font-family: var(--display);
+    font-size: clamp(36px, 5vw, 52px);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.035em;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+  .cover-subtitle {
+    font-size: 17px;
+    color: var(--ink-mute);
+    margin-bottom: 32px;
+  }
+
+  /* ========== HERO SCORECARD ========== */
+  .hero-card {
+    background: white;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+  }
+  .hero-score-side {
+    background: linear-gradient(135deg, var(--red-deep) 0%, var(--red) 100%);
+    padding: 36px 28px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .tier-pill {
+    display: inline-block;
+    padding: 6px 14px;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: white;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border-radius: 100px;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+  .big-score {
+    font-family: var(--display);
+    font-size: 96px;
+    font-weight: 800;
+    line-height: 1;
+    color: white;
+    letter-spacing: -0.04em;
+  }
+  .big-score .total {
+    font-size: 26px;
+    color: rgba(255,255,255,0.45);
+    font-weight: 500;
+  }
+  .score-lbl {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.75);
+    margin-top: 6px;
+  }
+  .change-pill {
+    margin-top: 16px;
+    padding: 6px 14px;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 100px;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: white;
+    font-weight: 600;
+  }
+  .hero-detail-side {
+    padding: 32px 36px;
+  }
+  .verdict-headline {
+    font-family: var(--display);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+    line-height: 1.3;
+  }
+  .verdict-sub {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-mute);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+  }
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+  .hstat {
+    padding: 10px 12px;
+    background: var(--bg);
+    border-radius: 8px;
+    border-left: 3px solid var(--red);
+  }
+  .hstat .hsv {
+    font-family: var(--display);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1;
+  }
+  .hstat .hsl {
+    font-family: var(--mono);
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-mute);
+    margin-top: 6px;
+  }
+  .verdict-msg {
+    padding: 14px 18px;
+    background: var(--red-soft);
+    border-radius: 8px;
+    border-left: 3px solid var(--red);
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--ink);
+  }
+
+  /* ========== SECTION COMMON ========== */
+  section { padding: 56px 0; border-bottom: 1px solid var(--border); }
+  section.alt { background: var(--bg-alt); }
+  .section-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--azure-600);
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  h2 {
+    font-family: var(--display);
+    font-size: clamp(26px, 3.5vw, 34px);
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    color: var(--navy);
+    font-weight: 800;
+    margin-bottom: 12px;
+  }
+  h2 em { font-style: italic; color: var(--coral); font-weight: 700; }
+  .section-lede {
+    font-size: 16px;
+    color: var(--ink-soft);
+    margin-bottom: 28px;
+    max-width: 720px;
+    line-height: 1.6;
+  }
+  h3 {
+    font-family: var(--display);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+  }
+  p { color: var(--ink); margin-bottom: 14px; max-width: 720px; }
+  strong { color: var(--navy); font-weight: 700; }
+
+  /* ========== AI ENGINE RANKINGS ========== */
+  .engines-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin: 24px 0;
+  }
+  .engine-card {
+    background: white;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+  .engine-header {
+    padding: 16px 18px;
+    border-bottom: 1px solid var(--border-soft);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .engine-dot {
+    width: 12px; height: 12px;
+    border-radius: 50%;
+  }
+  .engine-card.chatgpt .engine-dot { background: #10A37F; }
+  .engine-card.gemini .engine-dot { background: #4285F4; }
+  .engine-card.perplexity .engine-dot { background: #20808D; }
+  .engine-card.claude .engine-dot { background: #C97757; }
+  .engine-name {
+    font-family: var(--display);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--navy);
+  }
+  .engine-body {
+    padding: 18px;
+  }
+  .engine-rank-display {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+  .rank-big {
+    font-family: var(--display);
+    font-size: 44px;
+    font-weight: 800;
+    line-height: 1;
+    color: var(--red);
+    letter-spacing: -0.04em;
+  }
+  .rank-big.not-found {
+    font-size: 28px;
+    color: var(--red);
+  }
+  .rank-suffix {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-mute);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+  }
+  .engine-metric-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px dashed var(--border);
+    font-size: 12px;
+  }
+  .engine-metric-row:last-child { border-bottom: none; }
+  .em-label { color: var(--ink-mute); }
+  .em-value {
+    font-family: var(--mono);
+    color: var(--navy);
+    font-weight: 600;
+  }
+  .em-value.bad { color: var(--red); }
+  .engine-trend {
+    margin-top: 12px;
+    padding: 8px 12px;
+    background: var(--red-soft);
+    border-radius: 6px;
+    font-size: 12px;
+    font-family: var(--mono);
+    color: var(--red);
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .engine-trend.flat {
+    background: var(--bg);
+    color: var(--ink-mute);
+  }
+
+  /* ========== INDEX SUMMARY ========== */
+  .index-summary {
+    background: white;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    padding: 24px 28px;
+    margin-top: 16px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 28px;
+    align-items: center;
+  }
+  .index-icon {
+    width: 56px; height: 56px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, var(--red-deep) 0%, var(--red) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-family: var(--display);
+    font-size: 24px;
+    font-weight: 800;
+  }
+  .index-text strong {
+    display: block;
+    font-family: var(--display);
+    font-size: 18px;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+  .index-text span {
+    font-size: 14px;
+    color: var(--ink-soft);
+  }
+  .index-score {
+    font-family: var(--display);
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--red);
+    line-height: 1;
+    letter-spacing: -0.035em;
+  }
+
+  /* ========== PERFORMING PROMPTS ========== */
+  .prompt-stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin: 24px 0;
+  }
+  .pstat {
+    background: white;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    padding: 18px 20px;
+    text-align: center;
+  }
+  .pstat-val {
+    font-family: var(--display);
+    font-size: 36px;
+    font-weight: 800;
+    line-height: 1;
+    color: var(--red);
+    letter-spacing: -0.04em;
+  }
+  .pstat-lbl {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--ink-mute);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-top: 8px;
+  }
+
+  .prompts-table-wrap {
+    background: white;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    margin: 20px 0;
+  }
+  .prompts-table-header {
+    padding: 18px 24px;
+    background: var(--navy-deep);
+    color: white;
+  }
+  .prompts-table-header h3 {
+    color: white;
+    font-size: 18px;
+    margin-bottom: 4px;
+    font-family: var(--display);
+    font-weight: 700;
+  }
+  .prompts-table-header p {
+    color: rgba(255,255,255,0.75);
+    font-size: 13px;
+    margin: 0;
+    max-width: none;
+  }
+  .prompts-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  .prompts-table thead th {
+    background: var(--bg);
+    padding: 12px 14px;
+    text-align: left;
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-mute);
+    font-weight: 600;
+    border-bottom: 1px solid var(--border);
+  }
+  .prompts-table tbody td {
+    padding: 14px;
+    border-bottom: 1px solid var(--border-soft);
+    vertical-align: middle;
+  }
+  .prompts-table tbody tr:last-child td { border-bottom: none; }
+  .prompt-cell {
+    color: var(--ink);
+    font-weight: 500;
+    max-width: 280px;
+    line-height: 1.4;
+  }
+  .engine-tag {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 100px;
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 600;
+  }
+  .engine-tag.chatgpt { background: #DDF5EC; color: #10A37F; }
+  .engine-tag.gemini { background: #DDE7FA; color: #4285F4; }
+  .engine-tag.perplexity { background: #D8EBED; color: #20808D; }
+  .engine-tag.claude { background: #F4E3D9; color: #C97757; }
+  .status-pill {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 4px;
+  }
+  .status-pill.mentioned { background: var(--green-soft); color: var(--green); }
+  .status-pill.not-mentioned { background: var(--red-soft); color: var(--red); }
+  .position-pill {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    border-radius: 50%;
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 700;
+  }
+  .position-pill.rank-none { background: var(--red-soft); color: var(--red); }
+  .competitors-cell {
+    color: var(--ink-soft);
+    font-size: 12px;
+    font-style: italic;
+  }
+
+  /* ========== CATEGORY BREAKDOWN ========== */
+  .category-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin: 24px 0;
+  }
+  .cat-card {
+    background: white;
+    border-radius: 12px;
+    padding: 22px 24px;
+    border: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+  .cat-card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+  }
+  .cat-card.visibility::before { background: var(--navy); }
+  .cat-card.reputation::before { background: var(--azure-400); }
+  .cat-card.engagement::before { background: var(--coral); }
+  .cat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 14px;
+  }
+  .cat-name {
+    font-family: var(--display);
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--navy);
+  }
+  .cat-weight {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-mute);
+    padding: 2px 8px;
+    background: var(--bg);
+    border-radius: 4px;
+    font-weight: 600;
+  }
+  .cat-score-display {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    margin-bottom: 10px;
+  }
+  .cat-score {
+    font-family: var(--display);
+    font-size: 44px;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    color: var(--red);
+  }
+  .cat-max {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--ink-mute);
+  }
+  .cat-progress {
+    height: 6px;
+    background: var(--bg);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 12px;
+  }
+  .cat-progress-bar {
+    height: 100%;
+    border-radius: 3px;
+  }
+  .cat-card.visibility .cat-progress-bar { background: var(--navy); }
+  .cat-card.reputation .cat-progress-bar { background: var(--azure-400); }
+  .cat-card.engagement .cat-progress-bar { background: var(--coral); }
+  .cat-desc {
+    font-size: 12px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+
+  /* ========== COMPETITOR MOVEMENT ========== */
+  .compete-table-wrap {
+    background: white;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    margin: 20px 0;
+  }
+  .compete-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  .compete-table thead th {
+    background: var(--navy-deep);
+    color: white;
+    padding: 14px 16px;
+    text-align: left;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .compete-table tbody td {
+    padding: 16px;
+    border-bottom: 1px solid var(--border-soft);
+    vertical-align: middle;
+  }
+  .compete-table tbody tr:last-child td { border-bottom: none; }
+  .compete-table .rank-cell {
+    font-family: var(--display);
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--navy);
+    width: 60px;
+  }
+  .compete-table .you-row {
+    background: linear-gradient(90deg, rgba(239,90,111,0.10) 0%, rgba(239,90,111,0.02) 100%);
+  }
+  .compete-table .you-row .rank-cell { color: var(--red); }
+  .agent-cell strong {
+    display: block;
+    font-size: 15px;
+    color: var(--navy);
+    margin-bottom: 2px;
+  }
+  .agent-cell small {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-mute);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .carrier-tag {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 100px;
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+  }
+  .carrier-tag.allstate { background: #DCE6F8; color: var(--navy); }
+  .carrier-tag.statefarm { background: var(--red-soft); color: var(--red); }
+  .carrier-tag.indep { background: var(--bg-alt); color: var(--ink-soft); }
+  .carrier-tag.geico { background: var(--green-soft); color: var(--green); }
+  .score-now {
+    font-family: var(--mono);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--navy);
+  }
+  .movement-cell {
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 100px;
+    display: inline-block;
+  }
+  .movement-cell.up {
+    background: var(--green-soft);
+    color: var(--green);
+  }
+  .movement-cell.down {
+    background: var(--red-soft);
+    color: var(--red);
+  }
+  .movement-cell.flat {
+    background: var(--bg);
+    color: var(--ink-mute);
+  }
+
+  /* ========== EVIDENCE BOX ========== */
+  .evidence-box {
+    background: white;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--red);
+    padding: 20px 24px;
+    margin: 20px 0;
+  }
+  .evidence-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--red);
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .evidence-quote {
+    font-family: var(--display);
+    font-size: 17px;
+    font-style: italic;
+    color: var(--navy);
+    line-height: 1.5;
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
+  .evidence-cite {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-mute);
+    letter-spacing: 0.04em;
+  }
+
+  /* ========== ACTION PLAN BY CATEGORY ========== */
+  .action-category {
+    background: white;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+  .action-cat-header {
+    padding: 18px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+  }
+  .action-cat-header.visibility { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-deep) 100%); }
+  .action-cat-header.reputation { background: linear-gradient(135deg, var(--azure-600) 0%, var(--azure-400) 100%); }
+  .action-cat-header.engagement { background: linear-gradient(135deg, var(--coral) 0%, #C76755 100%); }
+  .action-cat-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .action-cat-badge {
+    width: 36px; height: 36px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--display);
+    font-size: 18px;
+    font-weight: 800;
+  }
+  .action-cat-name {
+    font-family: var(--display);
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  .action-cat-name small {
+    display: block;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.75);
+    font-weight: 400;
+    margin-top: 2px;
+  }
+  .action-cat-score {
+    font-family: var(--display);
+    font-size: 26px;
+    font-weight: 800;
+    color: white;
+    letter-spacing: -0.03em;
+  }
+  .action-cat-score small {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: rgba(255,255,255,0.65);
+    font-weight: 500;
+  }
+  .action-list {
+    padding: 8px 0;
+  }
+  .action-row {
+    padding: 18px 24px;
+    border-bottom: 1px solid var(--border-soft);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 16px;
+    align-items: start;
+  }
+  .action-row:last-child { border-bottom: none; }
+  .action-text h4 {
+    font-family: var(--display);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 6px;
+    letter-spacing: -0.02em;
+  }
+  .action-text p {
+    font-size: 14px;
+    color: var(--ink-soft);
+    margin: 0 0 8px;
+    line-height: 1.55;
+    max-width: none;
+  }
+  .action-impact {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-mute);
+    padding: 2px 8px;
+    background: var(--bg);
+    border-radius: 4px;
+    margin-right: 6px;
+  }
+  .action-impact strong {
+    color: var(--navy);
+    font-weight: 700;
+  }
+  .action-meta {
+    text-align: right;
+    min-width: 110px;
+  }
+  .timeframe-pill {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 100px;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .tf-urgent { background: var(--red-soft); color: var(--red); }
+  .tf-medium { background: var(--gold-soft); color: #8A6420; }
+  .tf-short { background: var(--green-soft); color: var(--green); }
+  .effort {
+    display: block;
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--ink-mute);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* ========== FOOTER ========== */
+  footer {
+    padding: 36px 0;
+    background: var(--navy-deep);
+    color: rgba(255,255,255,0.65);
+    text-align: center;
+  }
+  footer .container { max-width: 720px; }
+  footer .ftitle {
+    font-family: var(--display);
+    font-size: 22px;
+    color: white;
+    font-style: italic;
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
+  footer p {
+    color: rgba(255,255,255,0.7);
+    font-size: 13px;
+    margin: 0 auto 4px;
+    max-width: none;
+  }
+
+  /* ========== RESPONSIVE ========== */
+  @media (max-width: 820px) {
+    .container { padding: 0 20px; }
+    .hero-card { grid-template-columns: 1fr; }
+    .hero-score-side { padding: 28px 20px; }
+    .big-score { font-size: 72px; }
+    .hero-stats { grid-template-columns: repeat(2, 1fr); }
+    .engines-grid { grid-template-columns: repeat(2, 1fr); }
+    .category-grid { grid-template-columns: 1fr; }
+    .prompt-stats-row { grid-template-columns: repeat(2, 1fr); }
+    .index-summary { grid-template-columns: 1fr; text-align: center; gap: 16px; }
+    .compete-table, .prompts-table { font-size: 12px; }
+    .compete-table thead th, .compete-table tbody td,
+    .prompts-table thead th, .prompts-table tbody td { padding: 10px 8px; }
+    .prompt-cell { max-width: 140px; font-size: 11px; }
+    .action-row { grid-template-columns: 1fr; }
+    .action-meta { text-align: left; min-width: 0; }
+    section { padding: 40px 0; }
+    .cover { padding: 32px 0; }
+  }
+  @media print {
+    section { page-break-inside: avoid; padding: 32px 0; }
+    .engine-card, .cat-card, .action-category, .compete-table-wrap, .prompts-table-wrap, .evidence-box { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ========== COVER ========== -->
+<section class="cover">
+  <div class="container">
+    <div class="cover-meta">
+      <span class="report-label">AIgent Impact · Monthly Report · Bottom Tier</span>
+      <span>March 2026</span>
+    </div>
+    <h1 class="cover-title">Jose De Santiago</h1>
+    <p class="cover-subtitle">Allstate Insurance · 1613 S Halsted St, Chicago, IL 60608 (East Pilsen)</p>
+
+    <!-- Hero Scorecard -->
+    <div class="hero-card">
+      <div class="hero-score-side">
+        <span class="tier-pill">🚨 Bottom Tier</span>
+        <div class="big-score">22<span class="total">/100</span></div>
+        <div class="score-lbl">AIgent Impact Score</div>
+        <div class="change-pill">Baseline · First month</div>
+      </div>
+      <div class="hero-detail-side">
+        <div class="verdict-headline">You are essentially invisible to AI engines in the Pilsen insurance market.</div>
+        <div class="verdict-sub">Did not surface in 9 of 10 neutral local prompts · Foundational rebuild required</div>
+
+        <div class="hero-stats">
+          <div class="hstat">
+            <div class="hsv">Not Found</div>
+            <div class="hsl">Local AI Rank</div>
+          </div>
+          <div class="hstat">
+            <div class="hsv">8%</div>
+            <div class="hsl">Prompt Appearance</div>
+          </div>
+          <div class="hstat">
+            <div class="hsv">2</div>
+            <div class="hsl">Yelp Reviews · 1.0★</div>
+          </div>
+          <div class="hstat">
+            <div class="hsv">0</div>
+            <div class="hsl">Local Press</div>
+          </div>
+        </div>
+
+        <div class="verdict-msg">
+          <strong style="color: var(--red);">This Month's Headline:</strong> When consumers ask AI for the best insurance agent in Pilsen, your name does not appear. Despite 350 Allstate-platform reviews at 4.0★, off-platform reputation signals (Yelp 1.0★, NAP inconsistencies, generic bio) are actively dragging your visibility down. Good news: most issues are foundational and fixable within 90 days.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SECTION 1: AI ENGINE RANKINGS ========== -->
+<section>
+  <div class="container">
+    <div class="section-num">01 · AIgent Impact Ranking on Key AI Engines</div>
+    <h2>How you <em>rank across each AI engine</em></h2>
+    <p class="section-lede">Your performance on the four AI engines consumers use most when searching for local insurance. The data below is from this month's test of 10 neutral local Pilsen prompts across each engine.</p>
+
+    <div class="engines-grid">
+      <!-- ChatGPT -->
+      <div class="engine-card chatgpt">
+        <div class="engine-header">
+          <div class="engine-dot"></div>
+          <div class="engine-name">ChatGPT</div>
+        </div>
+        <div class="engine-body">
+          <div class="engine-rank-display">
+            <div class="rank-big not-found">Not Found</div>
+          </div>
+          <div class="engine-metric-row">
+            <span class="em-label">Appearance rate</span>
+            <span class="em-value bad">10%</span>
+          </div>
+          <div class="engine-metric-row">
+            <span class="em-label">Avg. position</span>
+            <span class="em-value bad">—</span>
+          </div>
+          <div class="engine-metric-row">
+            <span class="em-label">Citation rate</span>
+            <span class="em-value bad">0%</span>
+          </div>
+          <div class="engine-trend">
+            <span>▼ Below threshold</span>
+            <span>Only on name search</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gemini -->
+      <div class="engine-card gemini">
+        <div class="engine-header">
+          <div class="engine-dot"></div>
+          <div class="engine-name">Gemini</div>
+        </div>
+        <div class="engine-body">
+          <div class="engine-rank-display">
+            <div class="rank-big not-found">Not Found</div>
+          </div>
+          <div class="engine-metric-row">
+            <span class="em-label">Appearance rate</span>
+            <span class="em-value bad">10%</span>
+          </div>
+          <div class="engine-metric-row">
+            <span class="em-label">Avg. position</span>
+            <span class="em-value bad">—</span>
+          </div>
+          <div class="engine-metric-row">
+            <span class="em-label">Citation rate</span>
+            <span class="em-value bad">0%</span>
+          </div>
+          <div class="engine-trend">
+            <span>▼ Below threshold</span>
+            <span>Only on name search</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Perplexity -->
+      <div class="engine-card perplexity">
+        <div class="engine-header">
+          <div class="engine-dot"></div>
+          <div class="engine-name">Perplexity</div>
+        </div>
+        <div class="engine-body">
+          <div class="engine-rank-display">
+            <div class="rank-big not-found">Not Found</div>
+          </div>
+          <div class="engine-metric-row">
+            <span class="em-label">Appearance rate</span>
+            <span class="em-value bad">0%</span>
+          </div>
+          <div class="engine-metric-row">
+            <span class="em-label">Avg. position</span>
+            <span class="em-value bad">—</span>
+          </div>
+          <div class="engine-metric-row">
+            <span class="em-label">Citation rate</span>
+            <span class="em-value bad">0%</span>
+          </div>
+          <div class="engine-trend">
+            <span>▼ Zero presence</span>
+            <span>Not surfaced at all</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Claude -->
+      <div class="engine-card claude">
+        <div class="engine-header">
+          <div class="engine-dot"></div>
+          <div class="engine-name">Claude</div>
+        </div>
+        <div class="engine-body">
+          <div class="engine-rank-display">
+            <div class="rank-big not-found">Not Found</div>
+          </div>
+          <div class="engine-metric-row">
+            <span class="em-label">Appearance rate</span>
+            <span class="em-value bad">10%</span>
+          </div>
+          <div class="engine-metric-row">
+            <span class="em-label">Avg. position</span>
+            <span class="em-value bad">—</span>
+          </div>
+          <div class="engine-metric-row">
+            <span class="em-label">Citation rate</span>
+            <span class="em-value bad">0%</span>
+          </div>
+          <div class="engine-trend">
+            <span>▼ Below threshold</span>
+            <span>Only on name search</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="index-summary">
+      <div class="index-icon">!</div>
+      <div class="index-text">
+        <strong>Composite AI Visibility Index</strong>
+        <span>Weighted across all four engines · You surfaced in 1 of 10 neutral local prompts tested this month — and only when your name was searched directly</span>
+      </div>
+      <div class="index-score">8</div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SECTION 2: PERFORMING PROMPTS ========== -->
+<section class="alt">
+  <div class="container">
+    <div class="section-num">02 · Performing Prompts Audit</div>
+    <h2>The prompts where you <em>didn't surface</em></h2>
+    <p class="section-lede">Specific Pilsen-area insurance prompts tested across the four AI engines. Where you should have appeared as the local Allstate option, AI engines named competitors instead — most commonly State Farm and independent agencies.</p>
+
+    <div class="prompt-stats-row">
+      <div class="pstat">
+        <div class="pstat-val">10</div>
+        <div class="pstat-lbl">Prompts Tested</div>
+      </div>
+      <div class="pstat">
+        <div class="pstat-val">1</div>
+        <div class="pstat-lbl">You Appeared In</div>
+      </div>
+      <div class="pstat">
+        <div class="pstat-val">0</div>
+        <div class="pstat-lbl">Cited As Source</div>
+      </div>
+      <div class="pstat">
+        <div class="pstat-val">—</div>
+        <div class="pstat-lbl">Avg. Position</div>
+      </div>
+    </div>
+
+    <div class="prompts-table-wrap">
+      <div class="prompts-table-header">
+        <h3>Where you should have appeared but didn't</h3>
+        <p>Neutral local insurance queries · No brand cues · Pilsen / 60608 zip code · March 2026</p>
+      </div>
+      <table class="prompts-table">
+        <thead>
+          <tr>
+            <th>Prompt</th>
+            <th>AI Engine</th>
+            <th>Your Status</th>
+            <th>Position</th>
+            <th>Top Competitors Named Instead</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="prompt-cell">Best insurance agent in Pilsen Chicago</td>
+            <td><span class="engine-tag chatgpt">ChatGPT</span></td>
+            <td><span class="status-pill not-mentioned">Not Mentioned</span></td>
+            <td><span class="position-pill rank-none">—</span></td>
+            <td class="competitors-cell">State Farm (R. Hernandez), 2 independents</td>
+          </tr>
+          <tr>
+            <td class="prompt-cell">Top auto insurance agent in Pilsen</td>
+            <td><span class="engine-tag chatgpt">ChatGPT</span></td>
+            <td><span class="status-pill not-mentioned">Not Mentioned</span></td>
+            <td><span class="position-pill rank-none">—</span></td>
+            <td class="competitors-cell">State Farm, GEICO local office, 1 independent</td>
+          </tr>
+          <tr>
+            <td class="prompt-cell">Best insurance agent in 60608</td>
+            <td><span class="engine-tag gemini">Gemini</span></td>
+            <td><span class="status-pill not-mentioned">Not Mentioned</span></td>
+            <td><span class="position-pill rank-none">—</span></td>
+            <td class="competitors-cell">State Farm, 2 independents</td>
+          </tr>
+          <tr>
+            <td class="prompt-cell">Recommend a local insurance agent near 18th Street Chicago</td>
+            <td><span class="engine-tag perplexity">Perplexity</span></td>
+            <td><span class="status-pill not-mentioned">Not Mentioned</span></td>
+            <td><span class="position-pill rank-none">—</span></td>
+            <td class="competitors-cell">State Farm, Hernandez Insurance, 1 independent</td>
+          </tr>
+          <tr>
+            <td class="prompt-cell">Spanish-speaking insurance agent in Pilsen</td>
+            <td><span class="engine-tag chatgpt">ChatGPT</span></td>
+            <td><span class="status-pill not-mentioned">Not Mentioned</span></td>
+            <td><span class="position-pill rank-none">—</span></td>
+            <td class="competitors-cell">Hernandez State Farm, Latino-focused independent</td>
+          </tr>
+          <tr>
+            <td class="prompt-cell">Best Allstate agent in Pilsen Chicago</td>
+            <td><span class="engine-tag chatgpt">ChatGPT</span></td>
+            <td><span class="status-pill not-mentioned">Not Mentioned</span></td>
+            <td><span class="position-pill rank-none">—</span></td>
+            <td class="competitors-cell">Other Allstate agents in nearby ZIP codes</td>
+          </tr>
+          <tr>
+            <td class="prompt-cell">Insurance agent for Mexican-American families in Chicago</td>
+            <td><span class="engine-tag gemini">Gemini</span></td>
+            <td><span class="status-pill not-mentioned">Not Mentioned</span></td>
+            <td><span class="position-pill rank-none">—</span></td>
+            <td class="competitors-cell">State Farm Latino specialists, community agents</td>
+          </tr>
+          <tr>
+            <td class="prompt-cell">Compare insurance agents in Pilsen</td>
+            <td><span class="engine-tag perplexity">Perplexity</span></td>
+            <td><span class="status-pill not-mentioned">Not Mentioned</span></td>
+            <td><span class="position-pill rank-none">—</span></td>
+            <td class="competitors-cell">State Farm, 3 independents, no Allstate</td>
+          </tr>
+          <tr>
+            <td class="prompt-cell">Insurance for first-time homebuyers in Pilsen</td>
+            <td><span class="engine-tag claude">Claude</span></td>
+            <td><span class="status-pill not-mentioned">Not Mentioned</span></td>
+            <td><span class="position-pill rank-none">—</span></td>
+            <td class="competitors-cell">State Farm, 2 independents, online options</td>
+          </tr>
+          <tr>
+            <td class="prompt-cell">Jose De Santiago Allstate agent Chicago</td>
+            <td><span class="engine-tag chatgpt">ChatGPT</span></td>
+            <td><span class="status-pill mentioned">Mentioned</span></td>
+            <td><span class="position-pill rank-none" style="background: var(--bg); color: var(--ink-mute);">N/A</span></td>
+            <td class="competitors-cell">Only when name is searched directly</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p style="margin-top: 20px; font-size: 14px; color: var(--ink-soft);"><strong>The diagnostic:</strong> You only surface when AI engines are asked your name directly. For every category of customer who doesn't already know you exist — first-time homebuyers, Spanish-speaking families, Pilsen residents searching for "best agent" — you're effectively invisible. State Farm is winning every single one of these queries.</p>
+  </div>
+</section>
+
+<!-- ========== SECTION 3: CATEGORY SCORES ========== -->
+<section>
+  <div class="container">
+    <div class="section-num">03 · Score by Category</div>
+    <h2>Your <em>22 points</em> broken down</h2>
+    <p class="section-lede">Your AIgent Impact Score is built from three categories: Visibility, Reputation, and Engagement. All three are currently underperforming, but Visibility is the most urgent — without it, no other improvements will move your AI ranking.</p>
+
+    <div class="category-grid">
+      <div class="cat-card visibility">
+        <div class="cat-header">
+          <div class="cat-name">Visibility</div>
+          <div class="cat-weight">40%</div>
+        </div>
+        <div class="cat-score-display">
+          <div class="cat-score">18</div>
+          <div class="cat-max">/ 100</div>
+        </div>
+        <div class="cat-progress">
+          <div class="cat-progress-bar" style="width: 18%;"></div>
+        </div>
+        <p class="cat-desc">Critical. NAP inconsistency across platforms (two different phone numbers in use), generic bio, and zero appearance in neutral local prompts.</p>
+      </div>
+
+      <div class="cat-card reputation">
+        <div class="cat-header">
+          <div class="cat-name">Reputation</div>
+          <div class="cat-weight">35%</div>
+        </div>
+        <div class="cat-score-display">
+          <div class="cat-score">32</div>
+          <div class="cat-max">/ 100</div>
+        </div>
+        <div class="cat-progress">
+          <div class="cat-progress-bar" style="width: 32%;"></div>
+        </div>
+        <p class="cat-desc">Mixed. Allstate platform shows 4.0★ from 350 reviews — strong on paper. Yelp shows 1.0★ from 2 unanswered reviews — public-facing damage.</p>
+      </div>
+
+      <div class="cat-card engagement">
+        <div class="cat-header">
+          <div class="cat-name">Engagement</div>
+          <div class="cat-weight">25%</div>
+        </div>
+        <div class="cat-score-display">
+          <div class="cat-score">14</div>
+          <div class="cat-max">/ 100</div>
+        </div>
+        <div class="cat-progress">
+          <div class="cat-progress-bar" style="width: 14%;"></div>
+        </div>
+        <p class="cat-desc">Minimal. No press mentions, no awards, no chamber memberships found. Bio doesn't reference Pilsen, Mexican-American community, or any local ties.</p>
+      </div>
+    </div>
+
+    <!-- Evidence boxes for the most damaging findings -->
+    <div class="evidence-box">
+      <div class="evidence-label">Reputation Evidence · Public Yelp Review · April 2021</div>
+      <div class="evidence-quote">"Very bad customer service. Jose De Santiago does not reply to time-sensitive emails. I was changing address and needed my documents updated, my email to Jose was ignored until I had to call the office a week later."</div>
+      <div class="evidence-cite">— Patrick Steel K., Yelp · Never responded to by agent</div>
+    </div>
+
+    <div class="evidence-box">
+      <div class="evidence-label">Bio Evidence · agents.allstate.com</div>
+      <div class="evidence-quote">"I've gotten to know many local families as an Allstate agent in Chicago. I enjoy being a part of the community, and building local relationships is one of the best parts of my job."</div>
+      <div class="evidence-cite">— Generic template language. No mention of Pilsen, Spanish-speaking services, 30+ years in the community, or any specific local detail AI engines can cite.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SECTION 4: COMPETITORS ========== -->
+<section class="alt">
+  <div class="container">
+    <div class="section-num">04 · Key Competitors Winning Your Market</div>
+    <h2>Who's <em>winning Pilsen</em></h2>
+    <p class="section-lede">Estimated AIgent Impact Scores for the agents and agencies AI engines actually surface when consumers ask about insurance in Pilsen. Your top competitors are State Farm and Latino-focused independents.</p>
+
+    <div class="compete-table-wrap">
+      <table class="compete-table">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Agent / Agency</th>
+            <th>Carrier</th>
+            <th>Est. Score</th>
+            <th>Movement</th>
+            <th>Why They Win</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="rank-cell">1</td>
+            <td class="agent-cell"><strong>Rodrigo Hernandez State Farm</strong><small>Pilsen · 60608</small></td>
+            <td><span class="carrier-tag statefarm">State Farm</span></td>
+            <td class="score-now">71</td>
+            <td><span class="movement-cell up">▲ +3</span></td>
+            <td>State Farm brand authority, Spanish-language site, 180+ Google reviews at 4.7★</td>
+          </tr>
+          <tr>
+            <td class="rank-cell">2</td>
+            <td class="agent-cell"><strong>Pilsen Insurance Agency</strong><small>Independent · 60608</small></td>
+            <td><span class="carrier-tag indep">Independent</span></td>
+            <td class="score-now">64</td>
+            <td><span class="movement-cell up">▲ +2</span></td>
+            <td>Multi-carrier flexibility, bilingual staff, Pilsen Portal mention</td>
+          </tr>
+          <tr>
+            <td class="rank-cell">3</td>
+            <td class="agent-cell"><strong>Latino Insurance Group</strong><small>Independent · Little Village</small></td>
+            <td><span class="carrier-tag indep">Independent</span></td>
+            <td class="score-now">58</td>
+            <td><span class="movement-cell flat">─ 0</span></td>
+            <td>Spanish-first website, deep Mexican-American community ties</td>
+          </tr>
+          <tr>
+            <td class="rank-cell">4</td>
+            <td class="agent-cell"><strong>GEICO Pilsen Office</strong><small>Direct · 60608</small></td>
+            <td><span class="carrier-tag geico">GEICO</span></td>
+            <td class="score-now">52</td>
+            <td><span class="movement-cell up">▲ +1</span></td>
+            <td>Brand visibility, but lower trust scores from AI engines</td>
+          </tr>
+          <tr>
+            <td class="rank-cell">5</td>
+            <td class="agent-cell"><strong>Maria Lopez State Farm</strong><small>Little Village · 60623</small></td>
+            <td><span class="carrier-tag statefarm">State Farm</span></td>
+            <td class="score-now">48</td>
+            <td><span class="movement-cell up">▲ +4</span></td>
+            <td>Active Facebook, community events, Cinco de Mayo sponsorship</td>
+          </tr>
+          <tr class="you-row">
+            <td class="rank-cell">11</td>
+            <td class="agent-cell"><strong>Jose De Santiago (you)</strong><small>Pilsen · 60608</small></td>
+            <td><span class="carrier-tag allstate">Allstate</span></td>
+            <td class="score-now">22</td>
+            <td><span class="movement-cell flat">─ Baseline</span></td>
+            <td>First measurement · 49-point gap to #1</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p style="margin-top: 20px; font-size: 14px; color: var(--ink-soft);"><strong>The competitive gap:</strong> You are 49 points behind the market leader. The good news: most of that gap is composed of fixable foundational issues (bio, NAP, Yelp response, directory claims) — not insurmountable structural advantages. State Farm's Rodrigo Hernandez wins on Spanish-language presence and review velocity, both of which you can build into a competitive offer over 90 days.</p>
+  </div>
+</section>
+
+<!-- ========== SECTION 5: ACTION PLAN BY CATEGORY ========== -->
+<section>
+  <div class="container">
+    <div class="section-num">05 · Your Action Plan for April</div>
+    <h2>What to <em>work on next month</em></h2>
+    <p class="section-lede">Actions organized by category so you can see exactly what will move each part of your score. Most items are tagged URGENT because foundational issues need to be resolved before any growth-stage tactics can work. We'll execute most of these for you.</p>
+
+    <!-- VISIBILITY ACTIONS -->
+    <div class="action-category">
+      <div class="action-cat-header visibility">
+        <div class="action-cat-title">
+          <div class="action-cat-badge">1</div>
+          <div class="action-cat-name">Visibility Actions<small>40% of score · Currently 18/100</small></div>
+        </div>
+        <div class="action-cat-score">18<small>/100</small></div>
+      </div>
+      <div class="action-list">
+        <div class="action-row">
+          <div class="action-text">
+            <h4>Resolve the two-phone-number NAP crisis</h4>
+            <p>Your business currently uses (312) 850-0775 on Allstate.com and BBB, but (773) 292-2300 on Yelp, Yahoo Local, and agents.allstate.com (Spanish version). AI engines treat NAP inconsistency as a trust signal — they assume the data is unreliable. Pick one number and standardize it across all 15+ platforms.</p>
+            <span class="action-impact"><strong>+12 pts</strong> to Visibility</span>
+            <span class="action-impact"><strong>+4.8 pts</strong> to total</span>
+          </div>
+          <div class="action-meta">
+            <span class="timeframe-pill tf-urgent">URGENT · 7 days</span>
+            <span class="effort">Medium effort</span>
+          </div>
+        </div>
+
+        <div class="action-row">
+          <div class="action-text">
+            <h4>Claim Google Business Profile (urgent)</h4>
+            <p>Google Business Profile is the single most important AI source for local queries — it accounts for roughly 40% of citations across ChatGPT and Gemini. Your profile shows as unclaimed/uncategorized. We'll verify the profile, add hours, photos, services, and the correct phone number.</p>
+            <span class="action-impact"><strong>+15 pts</strong> to Visibility</span>
+            <span class="action-impact"><strong>+6.0 pts</strong> to total</span>
+          </div>
+          <div class="action-meta">
+            <span class="timeframe-pill tf-urgent">URGENT · 14 days</span>
+            <span class="effort">Medium effort</span>
+          </div>
+        </div>
+
+        <div class="action-row">
+          <div class="action-text">
+            <h4>Rewrite agents.allstate.com bio with Pilsen-specific language</h4>
+            <p>Your current bio reads "I've gotten to know many local families as an Allstate agent in Chicago" — generic template. Rewrite to reference Pilsen by name, your 30+ years in the community (already displayed on the page), the Mexican-American community you serve, and Spanish-speaking services. Give AI engines specific, retrievable facts to cite.</p>
+            <span class="action-impact"><strong>+8 pts</strong> to Visibility</span>
+            <span class="action-impact"><strong>+3.2 pts</strong> to total</span>
+          </div>
+          <div class="action-meta">
+            <span class="timeframe-pill tf-urgent">URGENT · 14 days</span>
+            <span class="effort">Low effort</span>
+          </div>
+        </div>
+
+        <div class="action-row">
+          <div class="action-text">
+            <h4>Claim 8 missing directory listings</h4>
+            <p>You're listed on basic directories (Yelp, BBB, Yellow Pages, Foursquare) but most are unclaimed or incomplete. Claim and complete: Google Business Profile, Apple Maps, Bing Places, Nextdoor, LinkedIn business, Facebook business page, Chicago Yellow Pages, and the Pilsen Chamber/Greater Pilsen EDA directory.</p>
+            <span class="action-impact"><strong>+10 pts</strong> to Visibility</span>
+            <span class="action-impact"><strong>+4.0 pts</strong> to total</span>
+          </div>
+          <div class="action-meta">
+            <span class="timeframe-pill tf-medium">Medium · 45 days</span>
+            <span class="effort">Higher effort</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- REPUTATION ACTIONS -->
+    <div class="action-category">
+      <div class="action-cat-header reputation">
+        <div class="action-cat-title">
+          <div class="action-cat-badge">2</div>
+          <div class="action-cat-name">Reputation Actions<small>35% of score · Currently 32/100</small></div>
+        </div>
+        <div class="action-cat-score">32<small>/100</small></div>
+      </div>
+      <div class="action-list">
+        <div class="action-row">
+          <div class="action-text">
+            <h4>Respond to the two negative Yelp reviews (5 years overdue)</h4>
+            <p>The two Yelp reviews from 2020 and 2021 remain unanswered. A professional, empathetic response acknowledging the customer experience demonstrates accountability — and crucially, gives AI engines a more balanced citation. Even a five-year-late response is meaningfully better than silence.</p>
+            <span class="action-impact"><strong>+6 pts</strong> to Reputation</span>
+            <span class="action-impact"><strong>+2.1 pts</strong> to total</span>
+          </div>
+          <div class="action-meta">
+            <span class="timeframe-pill tf-urgent">URGENT · 3 days</span>
+            <span class="effort">Low effort</span>
+          </div>
+        </div>
+
+        <div class="action-row">
+          <div class="action-text">
+            <h4>Launch Google review acquisition program</h4>
+            <p>You have 350 reviews on Allstate's platform but Google Business Profile shows minimal external reviews. Reviews on Google are the single most cited source by ChatGPT and Gemini. Launch SMS and email follow-up requesting Google reviews after policy bind, claim, or renewal. Target: 20 new Google reviews in 90 days, averaging 4.5★ or higher.</p>
+            <span class="action-impact"><strong>+15 pts</strong> to Reputation</span>
+            <span class="action-impact"><strong>+5.3 pts</strong> to total</span>
+          </div>
+          <div class="action-meta">
+            <span class="timeframe-pill tf-urgent">URGENT · 30 days</span>
+            <span class="effort">Higher effort</span>
+          </div>
+        </div>
+
+        <div class="action-row">
+          <div class="action-text">
+            <h4>Establish review response policy and cadence</h4>
+            <p>Going forward, respond to every review — positive and negative — within 7 days. Positive reviews get thank-you replies; negative reviews get acknowledgment + offline resolution. Review velocity and response rate are both AI ranking signals.</p>
+            <span class="action-impact"><strong>+5 pts</strong> to Reputation</span>
+            <span class="action-impact"><strong>+1.8 pts</strong> to total</span>
+          </div>
+          <div class="action-meta">
+            <span class="timeframe-pill tf-short">Ongoing</span>
+            <span class="effort">Low effort</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ENGAGEMENT ACTIONS -->
+    <div class="action-category">
+      <div class="action-cat-header engagement">
+        <div class="action-cat-title">
+          <div class="action-cat-badge">3</div>
+          <div class="action-cat-name">Engagement Actions<small>25% of score · Currently 14/100</small></div>
+        </div>
+        <div class="action-cat-score">14<small>/100</small></div>
+      </div>
+      <div class="action-list">
+        <div class="action-row">
+          <div class="action-text">
+            <h4>Join the Greater Pilsen Economic Development Association (GPEDA)</h4>
+            <p>Membership is publicly listed online, creates a backlink to your business, signals community embeddedness to AI engines, and gives you visible association with Pilsen by name. Maria Lopez State Farm uses similar memberships to compete on community presence.</p>
+            <span class="action-impact"><strong>+8 pts</strong> to Engagement</span>
+            <span class="action-impact"><strong>+2.0 pts</strong> to total</span>
+          </div>
+          <div class="action-meta">
+            <span class="timeframe-pill tf-medium">Medium · 30 days</span>
+            <span class="effort">Low effort</span>
+          </div>
+        </div>
+
+        <div class="action-row">
+          <div class="action-text">
+            <h4>Pitch a "30 years serving Pilsen" feature to local Spanish-language press</h4>
+            <p>Your 30+ years in the community (already displayed on Allstate page) is a natural press hook for outlets like Hoy Chicago, La Raza, Pilsen Portal, or Block Club Chicago Pilsen edition. A local press feature creates a high-authority backlink that AI engines weight heavily. Anderson Allstate Agency in Clarksville gained 8 points doing exactly this.</p>
+            <span class="action-impact"><strong>+10 pts</strong> to Engagement</span>
+            <span class="action-impact"><strong>+2.5 pts</strong> to total</span>
+          </div>
+          <div class="action-meta">
+            <span class="timeframe-pill tf-medium">Medium · 60 days</span>
+            <span class="effort">Medium effort</span>
+          </div>
+        </div>
+
+        <div class="action-row">
+          <div class="action-text">
+            <h4>Build 5 visible Pilsen referral partnerships</h4>
+            <p>Target categories with natural insurance referral flow: Pilsen auto dealers, real estate offices (Cordova Realty, At Home Realty Pilsen), property managers, mortgage brokers serving Latino first-time buyers. Visible partnerships create local backlinks and AI engine signals of community embeddedness.</p>
+            <span class="action-impact"><strong>+6 pts</strong> to Engagement</span>
+            <span class="action-impact"><strong>+1.5 pts</strong> to total</span>
+          </div>
+          <div class="action-meta">
+            <span class="timeframe-pill tf-short">Short · 90 days</span>
+            <span class="effort">Higher effort</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p style="margin-top: 28px; text-align: center; font-size: 14px; color: var(--ink-soft);"><strong>Total projected score gain if all actions complete:</strong> +33 points — projected score of 55 by Q3 2026 (Middle-High tier)</p>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <div class="container">
+    <div class="ftitle">AIgent Impact</div>
+    <p>Monthly Report for Jose De Santiago · Allstate Insurance · Pilsen, Chicago IL</p>
+    <p style="margin-top: 4px; color: rgba(255,255,255,0.5); font-size: 12px;">Report generated March 30, 2026 · Next refresh April 30, 2026 · Questions? Contact your AIgent Impact account team</p>
+  </div>
+</footer>
+
+</body>
+</html>

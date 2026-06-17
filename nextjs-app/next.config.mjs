@@ -26,6 +26,10 @@ const nextConfig = {
         source: "/decks/aigent-impact-report",
         destination: "/decks/aigent-impact-report.html",
       },
+      {
+        source: "/decks/aigent-impact-jose",
+        destination: "/decks/aigent-impact-jose.html",
+      },
     ];
   },
 };
