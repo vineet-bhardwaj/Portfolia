@@ -70,6 +70,34 @@
     content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px;
     background: linear-gradient(90deg, var(--navy) 0%, var(--azure) 100%);
   }
+  .brand-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+    gap: 16px;
+  }
+  .wordmark {
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: 26px;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    white-space: nowrap;
+  }
+  .wordmark .ai { color: var(--navy); font-style: italic; }
+  .wordmark .rest { color: var(--azure); }
+  .brand-date {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    text-align: right;
+    line-height: 1.4;
+  }
+  .brand-date .lbl { color: var(--azure-600); font-weight: 600; display: block; font-size: 10px; }
+  .brand-date .val { color: var(--ink); font-weight: 600; }
   .cover-meta {
     display: flex;
     justify-content: space-between;
@@ -929,9 +957,16 @@
 <!-- ========== COVER ========== -->
 <section class="cover">
   <div class="container">
+    <div class="brand-row">
+      <div class="wordmark"><span class="ai">AI</span><span class="rest">gent Impact</span></div>
+      <div class="brand-date">
+        <span class="lbl">Report Generated</span>
+        <span class="val">March 30, 2026</span>
+      </div>
+    </div>
     <div class="cover-meta">
-      <span class="report-label">AIgent Impact · Monthly Report · Bottom Tier</span>
-      <span>March 2026</span>
+      <span class="report-label">Monthly Report · Bottom Tier</span>
+      <span>March 2026 · Reporting Period</span>
     </div>
     <h1 class="cover-title">Jose De Santiago</h1>
     <p class="cover-subtitle">Allstate Insurance · 1613 S Halsted St, Chicago, IL 60608 (East Pilsen)</p>
