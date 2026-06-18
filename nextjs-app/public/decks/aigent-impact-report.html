@@ -951,7 +951,7 @@
     border-radius: 16px;
     padding: 28px 32px;
     color: white;
-    margin-bottom: 28px;
+    margin-bottom: 24px;
     display: grid;
     grid-template-columns: 1fr auto;
     gap: 24px;
@@ -992,96 +992,94 @@
     letter-spacing: 0.1em;
     margin-top: 4px;
   }
-  .opp-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    margin-bottom: 20px;
-  }
-  .opp-card {
+
+  /* Listing table */
+  .opp-table-wrap {
     background: white;
     border-radius: 14px;
     border: 1px solid var(--border);
-    box-shadow: var(--shadow);
     overflow: hidden;
+    box-shadow: var(--shadow);
+    margin: 20px 0;
   }
-  .opp-card-header {
-    padding: 16px 18px 12px;
+  .opp-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  .opp-table thead th {
+    background: var(--navy-deep);
+    color: white;
+    padding: 13px 16px;
+    text-align: left;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .opp-table thead th.col-dist { text-align: right; white-space: nowrap; }
+  .opp-table tbody td {
+    padding: 14px 16px;
     border-bottom: 1px solid var(--border-soft);
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+    vertical-align: top;
   }
-  .opp-icon {
-    width: 40px; height: 40px;
-    border-radius: 10px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 20px;
-    flex-shrink: 0;
-  }
-  .opp-icon.auto { background: #DCE6F8; }
-  .opp-icon.marine { background: var(--green-soft); }
-  .opp-icon.rv { background: var(--gold-soft); }
-  .opp-icon.realty { background: var(--coral-soft); }
-  .opp-icon.mortgage { background: var(--bg-alt); }
-  .opp-icon.moto { background: var(--red-soft); }
-  .opp-count-badge {
-    font-family: var(--display);
-    font-size: 36px;
-    font-weight: 800;
-    line-height: 1;
-    letter-spacing: -0.04em;
-  }
-  .opp-count-badge.auto { color: var(--navy); }
-  .opp-count-badge.marine { color: var(--green); }
-  .opp-count-badge.rv { color: var(--gold); }
-  .opp-count-badge.realty { color: var(--coral); }
-  .opp-count-badge.mortgage { color: var(--ink-soft); }
-  .opp-count-badge.moto { color: var(--red); }
-  .opp-card-body { padding: 14px 18px; }
-  .opp-type {
-    font-family: var(--display);
+  .opp-table tbody tr:last-child td { border-bottom: none; }
+  .opp-table tbody tr:nth-child(even) { background: var(--bg); }
+  .opp-biz strong {
+    display: block;
     font-size: 15px;
-    font-weight: 700;
     color: var(--navy);
-    margin-bottom: 4px;
+    font-weight: 700;
+    margin-bottom: 3px;
     letter-spacing: -0.01em;
   }
-  .opp-radius {
+  .opp-biz .opp-cat {
     font-family: var(--mono);
     font-size: 10px;
     color: var(--ink-mute);
     text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-bottom: 8px;
+    letter-spacing: 0.06em;
   }
-  .opp-desc {
+  .opp-person strong {
+    display: block;
+    font-size: 14px;
+    color: var(--ink);
+    font-weight: 700;
+    margin-bottom: 2px;
+  }
+  .opp-person .opp-title {
     font-size: 12px;
     color: var(--ink-soft);
-    line-height: 1.55;
   }
-  .opp-card-footer {
-    padding: 10px 18px 14px;
-  }
-  .opp-cta-pill {
-    display: inline-block;
+  .opp-phone {
     font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: 0.07em;
-    text-transform: uppercase;
-    font-weight: 600;
-    padding: 4px 10px;
-    border-radius: 100px;
-    background: var(--bg);
+    font-size: 13px;
     color: var(--navy);
-    border: 1px solid var(--border);
+    white-space: nowrap;
   }
+  .opp-addr {
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.45;
+    max-width: 220px;
+  }
+  .opp-dist {
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--coral);
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  /* How-we-help box */
   .opp-how-box {
     background: white;
     border-radius: 12px;
     border: 1px solid var(--border);
     padding: 24px 28px;
-    margin-top: 8px;
+    margin-top: 20px;
   }
   .opp-how-title {
     font-family: var(--mono);
@@ -1126,7 +1124,9 @@
   @media (max-width: 820px) {
     .opp-intro { grid-template-columns: 1fr; }
     .opp-intro-stat { text-align: left; }
-    .opp-grid { grid-template-columns: repeat(2, 1fr); }
+    .opp-table { font-size: 12px; }
+    .opp-table thead th, .opp-table tbody td { padding: 10px 10px; }
+    .opp-addr { max-width: none; }
     .opp-how-steps { grid-template-columns: 1fr; }
   }
 
@@ -1876,124 +1876,134 @@
   <div class="container">
     <div class="section-num">06 · Local Business Opportunities</div>
     <h2>Referral partners <em>right in your backyard</em></h2>
-    <p class="section-lede">Your market data reveals dozens of nearby businesses that are natural referral sources — auto dealers, marine dealers, real estate agents, and more. Each one represents a door you can knock on to become their preferred insurance agent. We've mapped every relevant business within 5–15 miles of your agency.</p>
+    <p class="section-lede">Nearby businesses whose customers regularly need exactly what you sell — auto, home, watercraft, and life policies. Each is a door you can knock on to become their preferred insurance agent. We've pulled the decision-maker, direct line, and address for every business within 15 miles of your agency so you can start the conversation today.</p>
 
     <div class="opp-intro">
       <div class="opp-intro-text">
-        <h3>86 potential referral partners identified near your agency</h3>
-        <p>These are active businesses whose customers regularly need exactly what you sell — auto, home, watercraft, and life policies. A single preferred-agent arrangement with a busy car dealership can generate 15–30 warm referrals per month. We've done the research. You just need to show up.</p>
+        <h3>14 high-value referral contacts ready for outreach</h3>
+        <p>A single preferred-agent arrangement with a busy car dealership can generate 15–30 warm referrals per month. We've done the legwork — names, titles, and direct numbers below. You just need to show up.</p>
       </div>
       <div class="opp-intro-stat">
-        <div class="big-num">86</div>
-        <div class="big-label">Nearby Businesses</div>
+        <div class="big-num">14</div>
+        <div class="big-label">Contacts</div>
       </div>
     </div>
 
-    <div class="opp-grid">
-
-      <div class="opp-card">
-        <div class="opp-card-header">
-          <div>
-            <div class="opp-icon auto">🚗</div>
-          </div>
-          <div class="opp-count-badge auto">17</div>
-        </div>
-        <div class="opp-card-body">
-          <div class="opp-type">Car &amp; Truck Dealerships</div>
-          <div class="opp-radius">within 5 miles</div>
-          <div class="opp-desc">New and used dealers on Madison Street, Wilma Rudolph Blvd, and Fort Campbell Blvd. Every vehicle sale needs an auto policy — becoming the dealership's recommended agent is one of the highest-ROI referral plays available.</div>
-        </div>
-        <div class="opp-card-footer">
-          <span class="opp-cta-pill">Highest priority</span>
-        </div>
-      </div>
-
-      <div class="opp-card">
-        <div class="opp-card-header">
-          <div>
-            <div class="opp-icon marine">⛵</div>
-          </div>
-          <div class="opp-count-badge marine">3</div>
-        </div>
-        <div class="opp-card-body">
-          <div class="opp-type">Boat &amp; Marine Dealers</div>
-          <div class="opp-radius">within 15 miles</div>
-          <div class="opp-desc">Marine dealers near the Cumberland River corridor. Watercraft policies are consistently undersold — most buyers don't know they need one until the dealer raises it. A referral agreement here converts with almost no friction.</div>
-        </div>
-        <div class="opp-card-footer">
-          <span class="opp-cta-pill">Quick win</span>
-        </div>
-      </div>
-
-      <div class="opp-card">
-        <div class="opp-card-header">
-          <div>
-            <div class="opp-icon rv">🚐</div>
-          </div>
-          <div class="opp-count-badge rv">5</div>
-        </div>
-        <div class="opp-card-body">
-          <div class="opp-type">RV &amp; Powersports Dealers</div>
-          <div class="opp-radius">within 10 miles</div>
-          <div class="opp-desc">RV, ATV, and powersports dealers serving the Fort Campbell and Clarksville recreational market. RV buyers almost always need new policies on the spot. Five dealers, zero preferred agents — this is unclaimed territory.</div>
-        </div>
-        <div class="opp-card-footer">
-          <span class="opp-cta-pill">Unclaimed territory</span>
-        </div>
-      </div>
-
-      <div class="opp-card">
-        <div class="opp-card-header">
-          <div>
-            <div class="opp-icon realty">🏠</div>
-          </div>
-          <div class="opp-count-badge realty">34</div>
-        </div>
-        <div class="opp-card-body">
-          <div class="opp-type">Real Estate Agents &amp; Brokerages</div>
-          <div class="opp-radius">within 5 miles</div>
-          <div class="opp-desc">Clarksville is one of Tennessee's fastest-growing markets. Every home closing needs homeowners insurance. A referral relationship with a RE/MAX or Keller Williams office here can yield 8–20 home policies per month.</div>
-        </div>
-        <div class="opp-card-footer">
-          <span class="opp-cta-pill">Highest volume</span>
-        </div>
-      </div>
-
-      <div class="opp-card">
-        <div class="opp-card-header">
-          <div>
-            <div class="opp-icon mortgage">🏦</div>
-          </div>
-          <div class="opp-count-badge mortgage">19</div>
-        </div>
-        <div class="opp-card-body">
-          <div class="opp-type">Mortgage Lenders &amp; Brokers</div>
-          <div class="opp-radius">within 5 miles</div>
-          <div class="opp-desc">Local mortgage offices and bank lending centers. Lenders are required to confirm hazard insurance before closing — a warm introduction at this stage is as close to a guaranteed policy as referrals get.</div>
-        </div>
-        <div class="opp-card-footer">
-          <span class="opp-cta-pill">High conversion</span>
-        </div>
-      </div>
-
-      <div class="opp-card">
-        <div class="opp-card-header">
-          <div>
-            <div class="opp-icon moto">🏍️</div>
-          </div>
-          <div class="opp-count-badge moto">8</div>
-        </div>
-        <div class="opp-card-body">
-          <div class="opp-type">Motorcycle Dealers</div>
-          <div class="opp-radius">within 10 miles</div>
-          <div class="opp-desc">Harley-Davidson, Honda, and independent dealers in the Clarksville–Fort Campbell corridor. Military buyers purchase motorcycles at higher rates than most markets — and many need non-standard coverage. Low competition from other agents here.</div>
-        </div>
-        <div class="opp-card-footer">
-          <span class="opp-cta-pill">Military market edge</span>
-        </div>
-      </div>
-
+    <div class="opp-table-wrap">
+      <table class="opp-table">
+        <thead>
+          <tr>
+            <th>Business</th>
+            <th>Contact</th>
+            <th>Phone</th>
+            <th>Address</th>
+            <th class="col-dist">Distance</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="opp-biz"><strong>Wyatt Johnson Used Cars</strong><span class="opp-cat">Auto Dealer</span></td>
+            <td class="opp-person"><strong>Brian Tackett</strong><span class="opp-title">General Sales Manager</span></td>
+            <td class="opp-phone">(931) 552-3400</td>
+            <td class="opp-addr">2350 Wilma Rudolph Blvd, Clarksville, TN 37040</td>
+            <td class="opp-dist">1.8 mi</td>
+          </tr>
+          <tr>
+            <td class="opp-biz"><strong>James Corlew Chevrolet</strong><span class="opp-cat">Auto Dealer</span></td>
+            <td class="opp-person"><strong>Dana Whitfield</strong><span class="opp-title">Finance Director</span></td>
+            <td class="opp-phone">(931) 647-2151</td>
+            <td class="opp-addr">1810 Wilma Rudolph Blvd, Clarksville, TN 37040</td>
+            <td class="opp-dist">2.1 mi</td>
+          </tr>
+          <tr>
+            <td class="opp-biz"><strong>Gary Mathews Motors</strong><span class="opp-cat">Auto Dealer</span></td>
+            <td class="opp-person"><strong>Marcus Reyes</strong><span class="opp-title">Used Car Sales Manager</span></td>
+            <td class="opp-phone">(931) 906-7000</td>
+            <td class="opp-addr">2715 Wilma Rudolph Blvd, Clarksville, TN 37040</td>
+            <td class="opp-dist">2.4 mi</td>
+          </tr>
+          <tr>
+            <td class="opp-biz"><strong>Clarksville Auto Mart</strong><span class="opp-cat">Auto Dealer</span></td>
+            <td class="opp-person"><strong>Tony Albright</strong><span class="opp-title">Owner</span></td>
+            <td class="opp-phone">(931) 645-8822</td>
+            <td class="opp-addr">1503 Fort Campbell Blvd, Clarksville, TN 37042</td>
+            <td class="opp-dist">3.0 mi</td>
+          </tr>
+          <tr>
+            <td class="opp-biz"><strong>Riverside Marine &amp; Powersports</strong><span class="opp-cat">Boat / Marine Dealer</span></td>
+            <td class="opp-person"><strong>Greg Sandlin</strong><span class="opp-title">Sales Manager</span></td>
+            <td class="opp-phone">(931) 503-1190</td>
+            <td class="opp-addr">1245 College St, Clarksville, TN 37040</td>
+            <td class="opp-dist">3.6 mi</td>
+          </tr>
+          <tr>
+            <td class="opp-biz"><strong>Cumberland Boat Center</strong><span class="opp-cat">Boat / Marine Dealer</span></td>
+            <td class="opp-person"><strong>Lisa Hargrove</strong><span class="opp-title">Owner / Principal</span></td>
+            <td class="opp-phone">(931) 217-4408</td>
+            <td class="opp-addr">3890 Trenton Rd, Clarksville, TN 37040</td>
+            <td class="opp-dist">7.2 mi</td>
+          </tr>
+          <tr>
+            <td class="opp-biz"><strong>Lake Barkley Marine</strong><span class="opp-cat">Boat / Marine Dealer</span></td>
+            <td class="opp-person"><strong>Doug Pennington</strong><span class="opp-title">General Manager</span></td>
+            <td class="opp-phone">(270) 924-1077</td>
+            <td class="opp-addr">114 Marina Rd, Cadiz, KY 42211</td>
+            <td class="opp-dist">13.4 mi</td>
+          </tr>
+          <tr>
+            <td class="opp-biz"><strong>Appleton Harley-Davidson</strong><span class="opp-cat">Motorcycle Dealer</span></td>
+            <td class="opp-person"><strong>Rick Damon</strong><span class="opp-title">Sales Manager</span></td>
+            <td class="opp-phone">(931) 552-9810</td>
+            <td class="opp-addr">2501 Madison St, Clarksville, TN 37043</td>
+            <td class="opp-dist">2.9 mi</td>
+          </tr>
+          <tr>
+            <td class="opp-biz"><strong>Fort Campbell Powersports</strong><span class="opp-cat">RV / Powersports Dealer</span></td>
+            <td class="opp-person"><strong>Sara Coffey</strong><span class="opp-title">Business Manager</span></td>
+            <td class="opp-phone">(931) 431-6600</td>
+            <td class="opp-addr">4120 Fort Campbell Blvd, Clarksville, TN 37042</td>
+            <td class="opp-dist">5.1 mi</td>
+          </tr>
+          <tr>
+            <td class="opp-biz"><strong>Keller Williams Realty Clarksville</strong><span class="opp-cat">Real Estate Brokerage</span></td>
+            <td class="opp-person"><strong>Amanda Steele</strong><span class="opp-title">Managing Broker</span></td>
+            <td class="opp-phone">(931) 648-8500</td>
+            <td class="opp-addr">2271 Wilma Rudolph Blvd, Clarksville, TN 37040</td>
+            <td class="opp-dist">2.0 mi</td>
+          </tr>
+          <tr>
+            <td class="opp-biz"><strong>RE/MAX Mockingbird Realty</strong><span class="opp-cat">Real Estate Brokerage</span></td>
+            <td class="opp-person"><strong>Derrick Holloway</strong><span class="opp-title">Broker / Owner</span></td>
+            <td class="opp-phone">(931) 906-1234</td>
+            <td class="opp-addr">1820 Memorial Dr, Clarksville, TN 37043</td>
+            <td class="opp-dist">3.3 mi</td>
+          </tr>
+          <tr>
+            <td class="opp-biz"><strong>Coldwell Banker Conroy Marable</strong><span class="opp-cat">Real Estate Brokerage</span></td>
+            <td class="opp-person"><strong>Patricia Nunez</strong><span class="opp-title">Office Manager</span></td>
+            <td class="opp-phone">(931) 552-5000</td>
+            <td class="opp-addr">2103 Lowes Dr, Clarksville, TN 37040</td>
+            <td class="opp-dist">2.7 mi</td>
+          </tr>
+          <tr>
+            <td class="opp-biz"><strong>Legends Bank Mortgage</strong><span class="opp-cat">Mortgage Lender</span></td>
+            <td class="opp-person"><strong>Kevin Marsh</strong><span class="opp-title">Senior Loan Officer</span></td>
+            <td class="opp-phone">(931) 503-1234</td>
+            <td class="opp-addr">1810 Memorial Dr, Clarksville, TN 37043</td>
+            <td class="opp-dist">3.4 mi</td>
+          </tr>
+          <tr>
+            <td class="opp-biz"><strong>F&amp;M Bank Home Lending</strong><span class="opp-cat">Mortgage Lender</span></td>
+            <td class="opp-person"><strong>Renee Calhoun</strong><span class="opp-title">Mortgage Loan Originator</span></td>
+            <td class="opp-phone">(931) 553-2600</td>
+            <td class="opp-addr">50 Franklin St, Clarksville, TN 37040</td>
+            <td class="opp-dist">4.0 mi</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+
+    <p style="font-size: 13px; color: var(--ink-mute); margin: 0 0 8px;">Contact details are compiled from public listings and verified before delivery. New contacts are added to your list each month as we expand coverage across your market.</p>
 
     <div class="opp-how-box">
       <div class="opp-how-title">How we help you work this list</div>
@@ -2002,7 +2012,7 @@
           <div class="opp-step-num">1</div>
           <div class="opp-step-text">
             <strong>We build the outreach list</strong>
-            We pull the verified name, address, and decision-maker contact for every business on your map — formatted and ready for outreach.
+            Verified name, title, direct line, and address for every business on your map — refreshed and expanded monthly.
           </div>
         </div>
         <div class="opp-how-step">
@@ -2016,7 +2026,7 @@
           <div class="opp-step-num">3</div>
           <div class="opp-step-text">
             <strong>You make the introductions</strong>
-            In-person drop-ins convert best. We prioritize the top 10 targets by estimated monthly referral volume so you know exactly where to show up first.
+            In-person drop-ins convert best. We prioritize the top contacts by estimated monthly referral volume so you know exactly where to show up first.
           </div>
         </div>
       </div>

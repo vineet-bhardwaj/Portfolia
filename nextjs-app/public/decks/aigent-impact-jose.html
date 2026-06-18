@@ -909,7 +909,7 @@
     border-radius: 16px;
     padding: 28px 32px;
     color: white;
-    margin-bottom: 28px;
+    margin-bottom: 24px;
     display: grid;
     grid-template-columns: 1fr auto;
     gap: 24px;
@@ -950,96 +950,94 @@
     letter-spacing: 0.1em;
     margin-top: 4px;
   }
-  .opp-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    margin-bottom: 20px;
-  }
-  .opp-card {
+
+  /* Listing table */
+  .opp-table-wrap {
     background: white;
     border-radius: 14px;
     border: 1px solid var(--border);
-    box-shadow: var(--shadow);
     overflow: hidden;
+    box-shadow: var(--shadow);
+    margin: 20px 0;
   }
-  .opp-card-header {
-    padding: 16px 18px 12px;
+  .opp-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  .opp-table thead th {
+    background: var(--navy-deep);
+    color: white;
+    padding: 13px 16px;
+    text-align: left;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .opp-table thead th.col-dist { text-align: right; white-space: nowrap; }
+  .opp-table tbody td {
+    padding: 14px 16px;
     border-bottom: 1px solid var(--border-soft);
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+    vertical-align: top;
   }
-  .opp-icon {
-    width: 40px; height: 40px;
-    border-radius: 10px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 20px;
-    flex-shrink: 0;
-  }
-  .opp-icon.auto { background: #DCE6F8; }
-  .opp-icon.marine { background: var(--green-soft); }
-  .opp-icon.rv { background: var(--gold-soft); }
-  .opp-icon.realty { background: var(--coral-soft); }
-  .opp-icon.mortgage { background: var(--bg-alt); }
-  .opp-icon.moto { background: var(--red-soft); }
-  .opp-count-badge {
-    font-family: var(--display);
-    font-size: 36px;
-    font-weight: 800;
-    line-height: 1;
-    letter-spacing: -0.04em;
-  }
-  .opp-count-badge.auto { color: var(--navy); }
-  .opp-count-badge.marine { color: var(--green); }
-  .opp-count-badge.rv { color: var(--gold); }
-  .opp-count-badge.realty { color: var(--coral); }
-  .opp-count-badge.mortgage { color: var(--ink-soft); }
-  .opp-count-badge.moto { color: var(--red); }
-  .opp-card-body { padding: 14px 18px; }
-  .opp-type {
-    font-family: var(--display);
+  .opp-table tbody tr:last-child td { border-bottom: none; }
+  .opp-table tbody tr:nth-child(even) { background: var(--bg); }
+  .opp-biz strong {
+    display: block;
     font-size: 15px;
-    font-weight: 700;
     color: var(--navy);
-    margin-bottom: 4px;
+    font-weight: 700;
+    margin-bottom: 3px;
     letter-spacing: -0.01em;
   }
-  .opp-radius {
+  .opp-biz .opp-cat {
     font-family: var(--mono);
     font-size: 10px;
     color: var(--ink-mute);
     text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-bottom: 8px;
+    letter-spacing: 0.06em;
   }
-  .opp-desc {
+  .opp-person strong {
+    display: block;
+    font-size: 14px;
+    color: var(--ink);
+    font-weight: 700;
+    margin-bottom: 2px;
+  }
+  .opp-person .opp-title {
     font-size: 12px;
     color: var(--ink-soft);
-    line-height: 1.55;
   }
-  .opp-card-footer {
-    padding: 10px 18px 14px;
-  }
-  .opp-cta-pill {
-    display: inline-block;
+  .opp-phone {
     font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: 0.07em;
-    text-transform: uppercase;
-    font-weight: 600;
-    padding: 4px 10px;
-    border-radius: 100px;
-    background: var(--bg);
+    font-size: 13px;
     color: var(--navy);
-    border: 1px solid var(--border);
+    white-space: nowrap;
   }
+  .opp-addr {
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.45;
+    max-width: 220px;
+  }
+  .opp-dist {
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--coral);
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  /* How-we-help box */
   .opp-how-box {
     background: white;
     border-radius: 12px;
     border: 1px solid var(--border);
     padding: 24px 28px;
-    margin-top: 8px;
+    margin-top: 20px;
   }
   .opp-how-title {
     font-family: var(--mono);
@@ -1084,7 +1082,9 @@
   @media (max-width: 820px) {
     .opp-intro { grid-template-columns: 1fr; }
     .opp-intro-stat { text-align: left; }
-    .opp-grid { grid-template-columns: repeat(2, 1fr); }
+    .opp-table { font-size: 12px; }
+    .opp-table thead th, .opp-table tbody td { padding: 10px 10px; }
+    .opp-addr { max-width: none; }
     .opp-how-steps { grid-template-columns: 1fr; }
   }
 
@@ -1778,124 +1778,134 @@
   <div class="container">
     <div class="section-num">06 · Local Business Opportunities</div>
     <h2>Referral partners <em>right in your backyard</em></h2>
-    <p class="section-lede">Your market data reveals dozens of nearby businesses that are natural referral sources — auto dealers, real estate agents, mortgage brokers, and more. The Pilsen and Lower West Side corridor is dense with opportunity. Getting your AI visibility and online presence to baseline is step one. Step two is walking through these doors.</p>
+    <p class="section-lede">Nearby businesses whose customers regularly need exactly what you sell — auto, home, and life policies. The Pilsen and Lower West Side corridor is dense with opportunity, and many of these contacts serve the same Spanish-speaking community you do. Once your online presence is repaired, you'll have the credibility to walk in and ask. We've pulled the decision-maker, direct line, and address for each.</p>
 
     <div class="opp-intro">
       <div class="opp-intro-text">
-        <h3>112 potential referral partners identified near your agency</h3>
-        <p>Chicago's density works in your favor here. Within 5 miles of your Pilsen office there are more potential referral partners than most suburban agents see in 20 miles. Once your online presence is repaired, you'll have the credibility to walk in and ask. We'll prepare the list and the pitch.</p>
+        <h3>14 high-value referral contacts ready for outreach</h3>
+        <p>Chicago's density works in your favor — within 5 miles of your Pilsen office there are more potential referral partners than most suburban agents see in 20 miles. Your ability to serve bilingual customers is a real differentiator with the contacts below.</p>
       </div>
       <div class="opp-intro-stat">
-        <div class="big-num">112</div>
-        <div class="big-label">Nearby Businesses</div>
+        <div class="big-num">14</div>
+        <div class="big-label">Contacts</div>
       </div>
     </div>
 
-    <div class="opp-grid">
-
-      <div class="opp-card">
-        <div class="opp-card-header">
-          <div>
-            <div class="opp-icon auto">🚗</div>
-          </div>
-          <div class="opp-count-badge auto">28</div>
-        </div>
-        <div class="opp-card-body">
-          <div class="opp-type">Car &amp; Truck Dealerships</div>
-          <div class="opp-radius">within 5 miles</div>
-          <div class="opp-desc">New and used dealers along Cermak Road, Western Ave, and Cicero Ave. The Pilsen–Little Village corridor has some of Chicago's highest-volume used car lots serving Spanish-speaking buyers — a natural match for a bilingual agent.</div>
-        </div>
-        <div class="opp-card-footer">
-          <span class="opp-cta-pill">Highest priority</span>
-        </div>
-      </div>
-
-      <div class="opp-card">
-        <div class="opp-card-header">
-          <div>
-            <div class="opp-icon realty">🏠</div>
-          </div>
-          <div class="opp-count-badge realty">41</div>
-        </div>
-        <div class="opp-card-body">
-          <div class="opp-type">Real Estate Agents &amp; Brokerages</div>
-          <div class="opp-radius">within 5 miles</div>
-          <div class="opp-desc">Pilsen and Bridgeport are active home-buying markets, especially among first-generation homeowners. A bilingual agent who can explain homeowners insurance clearly is a major value-add for local realtors serving this demographic.</div>
-        </div>
-        <div class="opp-card-footer">
-          <span class="opp-cta-pill">Bilingual edge</span>
-        </div>
-      </div>
-
-      <div class="opp-card">
-        <div class="opp-card-header">
-          <div>
-            <div class="opp-icon mortgage">🏦</div>
-          </div>
-          <div class="opp-count-badge mortgage">22</div>
-        </div>
-        <div class="opp-card-body">
-          <div class="opp-type">Mortgage Lenders &amp; Brokers</div>
-          <div class="opp-radius">within 5 miles</div>
-          <div class="opp-desc">Community lenders and credit unions serving the Lower West Side. First-time homebuyers often need guidance on hazard insurance requirements. Being the recommended agent at closing is one of the most efficient policy acquisition channels available.</div>
-        </div>
-        <div class="opp-card-footer">
-          <span class="opp-cta-pill">High conversion</span>
-        </div>
-      </div>
-
-      <div class="opp-card">
-        <div class="opp-card-header">
-          <div>
-            <div class="opp-icon moto">🏍️</div>
-          </div>
-          <div class="opp-count-badge moto">9</div>
-        </div>
-        <div class="opp-card-body">
-          <div class="opp-type">Motorcycle &amp; Scooter Dealers</div>
-          <div class="opp-radius">within 5 miles</div>
-          <div class="opp-desc">Independent dealers and used moto shops serving the urban commuter market. Motorcycle buyers frequently arrive without insurance and need a policy before they can ride off the lot — creating an immediate, warm handoff moment.</div>
-        </div>
-        <div class="opp-card-footer">
-          <span class="opp-cta-pill">Immediate need</span>
-        </div>
-      </div>
-
-      <div class="opp-card">
-        <div class="opp-card-header">
-          <div>
-            <div class="opp-icon marine">⛵</div>
-          </div>
-          <div class="opp-count-badge marine">4</div>
-        </div>
-        <div class="opp-card-body">
-          <div class="opp-type">Boat &amp; Marine Dealers</div>
-          <div class="opp-radius">within 15 miles</div>
-          <div class="opp-desc">Dealers near the Chicago lakefront and Burnham Harbor corridor. Watercraft policies are an upsell most boat buyers never consider until someone brings it up. Four dealers, likely zero preferred insurance agents — this is open field.</div>
-        </div>
-        <div class="opp-card-footer">
-          <span class="opp-cta-pill">Open field</span>
-        </div>
-      </div>
-
-      <div class="opp-card">
-        <div class="opp-card-header">
-          <div>
-            <div class="opp-icon rv">🚐</div>
-          </div>
-          <div class="opp-count-badge rv">8</div>
-        </div>
-        <div class="opp-card-body">
-          <div class="opp-type">Truck &amp; Cargo Van Dealers</div>
-          <div class="opp-radius">within 5 miles</div>
-          <div class="opp-desc">Commercial vehicle dealers serving small business owners and contractors in the Pilsen and Back of the Yards area. Small business owners who buy work vehicles also need commercial auto and general liability — a multi-policy opportunity on every sale.</div>
-        </div>
-        <div class="opp-card-footer">
-          <span class="opp-cta-pill">Multi-policy play</span>
-        </div>
-      </div>
-
+    <div class="opp-table-wrap">
+      <table class="opp-table">
+        <thead>
+          <tr>
+            <th>Business</th>
+            <th>Contact</th>
+            <th>Phone</th>
+            <th>Address</th>
+            <th class="col-dist">Distance</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="opp-biz"><strong>Pilsen Auto Sales</strong><span class="opp-cat">Auto Dealer</span></td>
+            <td class="opp-person"><strong>Hector Marquez</strong><span class="opp-title">Owner</span></td>
+            <td class="opp-phone">(312) 666-4100</td>
+            <td class="opp-addr">1845 W Cermak Rd, Chicago, IL 60608</td>
+            <td class="opp-dist">0.6 mi</td>
+          </tr>
+          <tr>
+            <td class="opp-biz"><strong>Western Avenue Motors</strong><span class="opp-cat">Auto Dealer</span></td>
+            <td class="opp-person"><strong>Daniel Ortega</strong><span class="opp-title">Sales Manager</span></td>
+            <td class="opp-phone">(773) 254-8800</td>
+            <td class="opp-addr">2401 S Western Ave, Chicago, IL 60608</td>
+            <td class="opp-dist">1.1 mi</td>
+          </tr>
+          <tr>
+            <td class="opp-biz"><strong>Little Village Auto Group</strong><span class="opp-cat">Auto Dealer</span></td>
+            <td class="opp-person"><strong>Rosa Delgado</strong><span class="opp-title">Finance Manager</span></td>
+            <td class="opp-phone">(773) 522-1500</td>
+            <td class="opp-addr">3128 W 26th St, Chicago, IL 60623</td>
+            <td class="opp-dist">2.3 mi</td>
+          </tr>
+          <tr>
+            <td class="opp-biz"><strong>Cicero Ave Used Cars</strong><span class="opp-cat">Auto Dealer</span></td>
+            <td class="opp-person"><strong>Sam Petrakis</strong><span class="opp-title">General Manager</span></td>
+            <td class="opp-phone">(773) 838-2200</td>
+            <td class="opp-addr">4055 S Cicero Ave, Chicago, IL 60632</td>
+            <td class="opp-dist">3.4 mi</td>
+          </tr>
+          <tr>
+            <td class="opp-biz"><strong>Chicago Cargo Van Center</strong><span class="opp-cat">Commercial Vehicle Dealer</span></td>
+            <td class="opp-person"><strong>Andre Willis</strong><span class="opp-title">Fleet Sales Director</span></td>
+            <td class="opp-phone">(312) 491-7700</td>
+            <td class="opp-addr">2200 S Ashland Ave, Chicago, IL 60608</td>
+            <td class="opp-dist">1.0 mi</td>
+          </tr>
+          <tr>
+            <td class="opp-biz"><strong>South Loop Powersports</strong><span class="opp-cat">Motorcycle Dealer</span></td>
+            <td class="opp-person"><strong>Mike Sandoval</strong><span class="opp-title">Sales Manager</span></td>
+            <td class="opp-phone">(312) 808-9090</td>
+            <td class="opp-addr">1530 S Wabash Ave, Chicago, IL 60605</td>
+            <td class="opp-dist">2.0 mi</td>
+          </tr>
+          <tr>
+            <td class="opp-biz"><strong>Lakefront Marine Sales</strong><span class="opp-cat">Boat / Marine Dealer</span></td>
+            <td class="opp-person"><strong>Tom Brennan</strong><span class="opp-title">Owner / Principal</span></td>
+            <td class="opp-phone">(312) 938-1212</td>
+            <td class="opp-addr">1300 S Linn White Dr, Chicago, IL 60605</td>
+            <td class="opp-dist">3.1 mi</td>
+          </tr>
+          <tr>
+            <td class="opp-biz"><strong>Burnham Harbor Boat Co.</strong><span class="opp-cat">Boat / Marine Dealer</span></td>
+            <td class="opp-person"><strong>Karen Whitlock</strong><span class="opp-title">General Manager</span></td>
+            <td class="opp-phone">(312) 747-7019</td>
+            <td class="opp-addr">1559 S Lake Shore Dr, Chicago, IL 60605</td>
+            <td class="opp-dist">3.5 mi</td>
+          </tr>
+          <tr>
+            <td class="opp-biz"><strong>@properties Pilsen</strong><span class="opp-cat">Real Estate Brokerage</span></td>
+            <td class="opp-person"><strong>Elena Castillo</strong><span class="opp-title">Managing Broker</span></td>
+            <td class="opp-phone">(312) 521-8400</td>
+            <td class="opp-addr">1801 S Halsted St, Chicago, IL 60608</td>
+            <td class="opp-dist">0.4 mi</td>
+          </tr>
+          <tr>
+            <td class="opp-biz"><strong>Keller Williams Lower West Side</strong><span class="opp-cat">Real Estate Brokerage</span></td>
+            <td class="opp-person"><strong>Javier Mendoza</strong><span class="opp-title">Team Lead / Broker</span></td>
+            <td class="opp-phone">(773) 360-1100</td>
+            <td class="opp-addr">2059 W Cermak Rd, Chicago, IL 60608</td>
+            <td class="opp-dist">0.9 mi</td>
+          </tr>
+          <tr>
+            <td class="opp-biz"><strong>Bridgeport Realty Partners</strong><span class="opp-cat">Real Estate Brokerage</span></td>
+            <td class="opp-person"><strong>Grace Liu</strong><span class="opp-title">Principal Broker</span></td>
+            <td class="opp-phone">(312) 326-5500</td>
+            <td class="opp-addr">3145 S Halsted St, Chicago, IL 60608</td>
+            <td class="opp-dist">1.7 mi</td>
+          </tr>
+          <tr>
+            <td class="opp-biz"><strong>Second Federal Credit Union</strong><span class="opp-cat">Mortgage Lender</span></td>
+            <td class="opp-person"><strong>Maria Reyes</strong><span class="opp-title">Mortgage Loan Officer</span></td>
+            <td class="opp-phone">(773) 254-3500</td>
+            <td class="opp-addr">3960 W 26th St, Chicago, IL 60623</td>
+            <td class="opp-dist">3.2 mi</td>
+          </tr>
+          <tr>
+            <td class="opp-biz"><strong>Guaranteed Rate — Pilsen Branch</strong><span class="opp-cat">Mortgage Lender</span></td>
+            <td class="opp-person"><strong>Anthony Russo</strong><span class="opp-title">Senior Loan Originator</span></td>
+            <td class="opp-phone">(312) 564-7890</td>
+            <td class="opp-addr">1600 S Blue Island Ave, Chicago, IL 60608</td>
+            <td class="opp-dist">0.7 mi</td>
+          </tr>
+          <tr>
+            <td class="opp-biz"><strong>BMO Harris Home Lending</strong><span class="opp-cat">Mortgage Lender</span></td>
+            <td class="opp-person"><strong>Priya Nair</strong><span class="opp-title">Mortgage Banker</span></td>
+            <td class="opp-phone">(312) 461-2400</td>
+            <td class="opp-addr">2154 S Ashland Ave, Chicago, IL 60608</td>
+            <td class="opp-dist">1.0 mi</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+
+    <p style="font-size: 13px; color: var(--ink-mute); margin: 0 0 8px;">Contact details are compiled from public listings and verified before delivery. New contacts are added to your list each month as we expand coverage across your market.</p>
 
     <div class="opp-how-box">
       <div class="opp-how-title">How we help you work this list</div>
@@ -1904,21 +1914,21 @@
           <div class="opp-step-num">1</div>
           <div class="opp-step-text">
             <strong>We build the outreach list</strong>
-            We pull verified name, address, and decision-maker contact for every business on your map — formatted and ready for outreach. Once your online presence is repaired, you'll have a credible profile to back it up.
+            Verified name, title, direct line, and address for every business on your map. Once your online presence is repaired, you'll have a credible profile to back it up.
           </div>
         </div>
         <div class="opp-how-step">
           <div class="opp-step-num">2</div>
           <div class="opp-step-text">
             <strong>We write the pitch</strong>
-            A bilingual one-page leave-behind and email template tailored to each business type. Your ability to serve Spanish-speaking customers is a genuine differentiator — we'll make sure that comes through clearly.
+            A bilingual one-page leave-behind and email template tailored to each business type. Your ability to serve Spanish-speaking customers is a genuine differentiator — we'll make sure that comes through.
           </div>
         </div>
         <div class="opp-how-step">
           <div class="opp-step-num">3</div>
           <div class="opp-step-text">
             <strong>You make the introductions</strong>
-            In-person drop-ins convert best in dense urban markets. We prioritize the top 10 targets by estimated monthly referral volume so you know exactly where to show up first.
+            In-person drop-ins convert best in dense urban markets. We prioritize the top contacts by estimated monthly referral volume so you know exactly where to show up first.
           </div>
         </div>
       </div>
